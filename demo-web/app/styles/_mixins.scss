@@ -1,0 +1,48 @@
+@mixin flex-horizontal {
+// Firefox 2-19
+    display: -moz-box;
+    -moz-box-orient: horizontal;
+// Chrome 4-20, Safari 3.1-, iOS 3.2-, Android 2.1-
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+// Chrome 21-
+    display: -webkit-flex;
+    -webkit-flex-flow: row;
+// IE 10-
+    display: -ms-flexbox;
+    -ms-flex-direction: row;
+// Standard, Firefox 20-, Opera 12.1
+    display: flex;
+    flex-flow: row;
+}
+
+@mixin flex-vertical {
+// Firefox 2-19
+    display: -moz-box;
+    -moz-box-orient: vertical;
+// Chrome 4-20, Safari 3.1-, iOS 3.2-, Android 2.1-
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+// Chrome 21-
+    display: -webkit-flex;
+    -webkit-flex-flow: column;
+// IE 10-
+    display: -ms-flexbox;
+    -ms-flex-direction: column;
+// Standard, Firefox 20-, Opera 12.1
+    display: flex;
+    flex-flow: column;
+}
+
+@mixin flex($flex) {
+// Firefox 2-19
+    -moz-box-flex: $flex;
+// Chrome 4-20, Safari 3.1-, iOS 3.2-, Android 2.1-
+    -webkit-box-flex: $flex;
+// Chrome 21-
+    -webkit-flex: $flex;
+// IE 10-
+    -ms-flex: $flex;
+// Standard, Firefox 20-, Opera 12.1
+    flex: $flex;
+}

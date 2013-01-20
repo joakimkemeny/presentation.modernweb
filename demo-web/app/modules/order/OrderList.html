@@ -1,0 +1,33 @@
+<header>
+    <h1>Orders</h1>
+    <div class="btn-toolbar">
+        <div class="btn-group">
+            <a class="btn" href="#order/add"><i class="icon-plus"></i> New</a>
+        </div>
+    </div>
+</header>
+<table class="table table-striped">
+    <colgroup>
+        <col style="width: 50%">
+        <col style="width: 50%">
+        <col style="width: 60px">
+    </colgroup>
+    <thead>
+    <tr>
+        <th>Customer</th>
+        <th>Quantity</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% _.each(orders, function(order) { %>
+    <tr>
+        <td>{{order.customer}}</td>
+        <td>{{order.quantity}}</td>
+        <td class="right">
+            <a class="btn" href="#order/edit/{{order.id}}"><i class="icon-edit"></i></a>
+        </td>
+    </tr>
+    <% }) %>
+    </tbody>
+</table>
