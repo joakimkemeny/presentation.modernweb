@@ -1,5 +1,7 @@
 package demo.modernweb.domain.thirdparty;
 
+import org.codehaus.jackson.annotate.JsonValue;
+
 /**
  * @johnwilander
  */
@@ -13,7 +15,18 @@ public class ServiceLevel {
     }
 
     public enum Level {
-        TO_DOOR, TO_DELIVERY_CENTRAL
+        TO_DOOR("to your door"), TO_DELIVERY_CENTRAL("to your closest delivery central");
+
+        private final String str;
+        private Level(String str) {
+            this.str = str;
+        }
+
+        @JsonValue
+        @Override
+        public String toString() {
+            return str;
+        }
     }
 
     public Price getPrice() {

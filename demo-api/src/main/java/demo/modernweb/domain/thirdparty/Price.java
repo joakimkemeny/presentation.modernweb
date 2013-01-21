@@ -1,5 +1,7 @@
 package demo.modernweb.domain.thirdparty;
 
+import org.codehaus.jackson.annotate.JsonValue;
+
 /**
  * @johnwilander
  */
@@ -26,7 +28,18 @@ public class Price {
     }
 
     public enum Currency {
-        SEK_ORE, EURO_CENTS
+        SEK_ORE("öre"), EURO_CENTS("cents");
+
+        private final String str;
+        private Currency(String str) {
+            this.str = str;
+        }
+
+        @JsonValue
+        @Override
+        public String toString() {
+            return str;
+        }
     }
 
     public int getAmount() {

@@ -1,5 +1,7 @@
 package demo.modernweb.domain.thirdparty;
 
+import org.codehaus.jackson.annotate.JsonValue;
+
 /**
  * @johnwilander
  */
@@ -13,7 +15,18 @@ public class ShipmentMethod {
     }
 
     public enum Method {
-        BY_AIR, BY_TRAIN
+        BY_AIR("by air"), BY_TRAIN("by train");
+
+        private final String str;
+        private Method(String str) {
+            this.str = str;
+        }
+
+        @JsonValue
+        @Override
+        public String toString() {
+            return str;
+        }
     }
 
     public Price getPrice() {
