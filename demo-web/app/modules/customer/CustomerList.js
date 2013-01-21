@@ -1,27 +1,30 @@
-define([
-    "backbone",
-    "underscore",
-    "text!modules/customer/CustomerList.html"
-], function (Backbone, _, customerListTemplate) {
+(function(){
     "use strict";
 
-    var CustomerList = Backbone.View.extend({
+    define([
+        "backbone",
+        "underscore",
+        "text!modules/customer/CustomerList.html"
+    ], function (Backbone, _, customerListTemplate) {
 
-        el : "#customer-list",
+        var CustomerList = Backbone.View.extend({
 
-        initialize : function () {
-            this.template = _.template(customerListTemplate);
-            this.render();
-            this.collection.on("all", this.render, this);
-        },
+            el : "#customer-list",
 
-        render : function () {
-            this.$el.empty();
-            this.$el.html(this.template({
-                customers : this.collection.toJSON()
-            }));
-        }
+            initialize : function () {
+                this.template = _.template(customerListTemplate);
+                this.render();
+                this.collection.on("all", this.render, this);
+            },
+
+            render : function () {
+                this.$el.empty();
+                this.$el.html(this.template({
+                    customers : this.collection.toJSON()
+                }));
+            }
+        });
+
+        return CustomerList;
     });
-
-    return CustomerList;
-});
+})();

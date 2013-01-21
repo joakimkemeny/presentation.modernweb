@@ -1,26 +1,29 @@
-define([
-    "jquery",
-    "backbone",
-    "underscore",
-    "modules/customer/CustomerRouter",
-    "modules/order/OrderRouter"
-], function ($, Backbone, _, CustomerRouter, OrderRouter) {
+(function(){
     "use strict";
 
-    var ModernWeb = {};
+    define([
+        "jquery",
+        "backbone",
+        "underscore",
+        "modules/customer/CustomerRouter",
+        "modules/order/OrderRouter"
+    ], function ($, Backbone, _, CustomerRouter, OrderRouter) {
 
-    ModernWeb.start = function () {
+        var ModernWeb = {};
 
-        _.templateSettings = {
-            evaluate : /<%([\s\S]+?)%>/g,
-            interpolate : /\{\{(.+?)\}\}/g,
-            escape : /<%-([\s\S]+?)%>/g
-        };
+        ModernWeb.start = function () {
 
-        new CustomerRouter();
-        new OrderRouter();
-        Backbone.history.start();
-    }
+            _.templateSettings = {
+                evaluate : /<%([\s\S]+?)%>/g,
+                interpolate : /\{\{(.+?)\}\}/g,
+                escape : /<%-([\s\S]+?)%>/g
+            };
 
-    return ModernWeb;
-});
+            new CustomerRouter();
+            new OrderRouter();
+            Backbone.history.start();
+        }
+
+        return ModernWeb;
+    });
+})();

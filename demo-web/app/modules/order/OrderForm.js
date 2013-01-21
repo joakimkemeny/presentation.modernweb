@@ -1,53 +1,56 @@
-define([
-    "backbone",
-    "underscore",
-    "text!modules/order/OrderForm.html"
-], function (Backbone, _, orderFormTemplate) {
+(function(){
     "use strict";
 
-    var OrderForm = Backbone.View.extend({
+    define([
+        "backbone",
+        "underscore",
+        "text!modules/order/OrderForm.html"
+    ], function (Backbone, _, orderFormTemplate) {
 
-        el : "#order-form",
+        var OrderForm = Backbone.View.extend({
 
-        events : {
-            "click #orderDelete" : "delete",
-            "click #orderSave" : "save"
-        },
+            el : "#order-form",
 
-        initialize : function () {
-            this.template = _.template(orderFormTemplate);
-            this.render();
-        },
+            events : {
+                "click #orderDelete" : "delete",
+                "click #orderSave" : "save"
+            },
 
-        render : function () {
-            this.$el.html(this.template({
-                order : this.model.toJSON()
-            }));
-        },
+            initialize : function () {
+                this.template = _.template(orderFormTemplate);
+                this.render();
+            },
 
-        delete : function () {
-            this.model.destroy({
-                success : function () {
-                    Backbone.history.navigate("order", true);
-                }
-            });
-        },
+            render : function () {
+                this.$el.html(this.template({
+                    order : this.model.toJSON()
+                }));
+            },
 
-        save : function () {
-            var self = this;
+            delete : function () {
+                this.model.destroy({
+                    success : function () {
+                        Backbone.history.navigate("order", true);
+                    }
+                });
+            },
 
-            this.model.save({
-                customer : $("#customer").val(),
-                quantity : $("#quantity").val()
-            }, {
-                wait : true,
-                success : function (model) {
-                    self.collection.add(model);
-                    Backbone.history.navigate("order", true);
-                }
-            });
-        }
+            save : function () {
+                var self = this;
+
+                this.model.save({
+                    customer : $("#customer").val(),
+                    quantity : $("#quantity").val()
+                }, {
+                    wait : true,
+                    success : function (model) {
+                        self.collection.add(model);
+                        Backbone.history.navigate("order", true);
+                    }
+                });
+            }
+        });
+
+        return OrderForm;
     });
-
-    return OrderForm;
-});
+})();

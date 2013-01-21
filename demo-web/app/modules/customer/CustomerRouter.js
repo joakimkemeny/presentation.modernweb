@@ -1,71 +1,74 @@
-define([
-    "jquery",
-    "backbone",
-    "modules/customer/Customer",
-    "modules/customer/CustomerForm",
-    "modules/customer/CustomerList"
-], function ($, Backbone, Customer, CustomerForm, CustomerList) {
+(function(){
     "use strict";
 
-    var CustomerRouter = Backbone.Router.extend({
+    define([
+        "jquery",
+        "backbone",
+        "modules/customer/Customer",
+        "modules/customer/CustomerForm",
+        "modules/customer/CustomerList"
+    ], function ($, Backbone, Customer, CustomerForm, CustomerList) {
 
-        initialize : function () {
-            this.customers = new Customer.Collection();
-            this.customers.fetch({ async : false });
-        },
+        var CustomerRouter = Backbone.Router.extend({
 
-        listCustomers : function () {
-            $(".order").hide();
-            $(".customer").show();
+            initialize : function () {
+                this.customers = new Customer.Collection();
+                this.customers.fetch({ async : false });
+            },
 
-            var self = this;
+            listCustomers : function () {
+                $(".order").hide();
+                $(".customer").show();
 
-            if (!this.listView) {
-                this.listView = new CustomerList({
+                var self = this;
+
+                if (!this.listView) {
+                    this.listView = new CustomerList({
+                        collection : this.customers
+                    });
+                }
+
+                if (this.formView) {
+                    this.formView.$el.hide("slide", function () {
+                        self.formView.undelegateEvents();
+                        self.formView.$el.empty();
+                        self.formView = null;
+                    });
+                }
+            },
+
+            editCustomer : function (id) {
+                $(".order").hide();
+                $(".customer").show();
+
+                var customer = (id) ? this.customers.get(id) : new Customer.Model();
+
+                if (!this.listView) {
+                    this.listCustomers();
+                }
+
+                if (this.formView) {
+                    this.formView.$el.empty();
+                    this.formView.undelegateEvents();
+                    this.formView = null;
+                }
+
+                this.formView = new CustomerForm({
+                    model : customer,
                     collection : this.customers
                 });
+
+                this.formView.$el.show("slide");
+            },
+
+            routes : {
+                "" : "listCustomers",
+                "customer" : "listCustomers",
+                "customer/add" : "editCustomer",
+                "customer/edit/:id" : "editCustomer"
             }
+        });
 
-            if (this.formView) {
-                this.formView.$el.hide("slide", function () {
-                    self.formView.undelegateEvents();
-                    self.formView.$el.empty();
-                    self.formView = null;
-                });
-            }
-        },
-
-        editCustomer : function (id) {
-            $(".order").hide();
-            $(".customer").show();
-
-            var customer = (id) ? this.customers.get(id) : new Customer.Model();
-
-            if (!this.listView) {
-                this.listCustomers();
-            }
-
-            if (this.formView) {
-                this.formView.$el.empty();
-                this.formView.undelegateEvents();
-                this.formView = null;
-            }
-
-            this.formView = new CustomerForm({
-                model : customer,
-                collection : this.customers
-            });
-
-            this.formView.$el.show("slide");
-        },
-
-        routes : {
-            "" : "listCustomers",
-            "customer" : "listCustomers",
-            "customer/add" : "editCustomer",
-            "customer/edit/:id" : "editCustomer"
-        }
+        return CustomerRouter;
     });
-
-    return CustomerRouter;
-});
+})();

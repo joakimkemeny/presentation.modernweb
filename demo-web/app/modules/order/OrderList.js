@@ -1,27 +1,30 @@
-define([
-    "backbone",
-    "underscore",
-    "text!modules/order/OrderList.html"
-], function (Backbone, _, orderListTemplate) {
+(function(){
     "use strict";
 
-    var OrderList = Backbone.View.extend({
+    define([
+        "backbone",
+        "underscore",
+        "text!modules/order/OrderList.html"
+    ], function (Backbone, _, orderListTemplate) {
 
-        el : "#order-list",
+        var OrderList = Backbone.View.extend({
 
-        initialize : function () {
-            this.template = _.template(orderListTemplate);
-            this.render();
-            this.collection.on("all", this.render, this);
-        },
+            el : "#order-list",
 
-        render : function () {
-            this.$el.empty();
-            this.$el.html(this.template({
-                orders : this.collection.toJSON()
-            }));
-        }
+            initialize : function () {
+                this.template = _.template(orderListTemplate);
+                this.render();
+                this.collection.on("all", this.render, this);
+            },
+
+            render : function () {
+                this.$el.empty();
+                this.$el.html(this.template({
+                    orders : this.collection.toJSON()
+                }));
+            }
+        });
+
+        return OrderList;
     });
-
-    return OrderList;
-});
+})();

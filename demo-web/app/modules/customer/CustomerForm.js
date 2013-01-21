@@ -1,53 +1,56 @@
-define([
-    "backbone",
-    "underscore",
-    "text!modules/customer/CustomerForm.html"
-], function (Backbone, _, customerFormTemplate) {
+(function(){
     "use strict";
 
-    var CustomerForm = Backbone.View.extend({
+    define([
+        "backbone",
+        "underscore",
+        "text!modules/customer/CustomerForm.html"
+    ], function (Backbone, _, customerFormTemplate) {
 
-        el : "#customer-form",
+        var CustomerForm = Backbone.View.extend({
 
-        events : {
-            "click #customerDelete" : "delete",
-            "click #customerSave" : "save"
-        },
+            el : "#customer-form",
 
-        initialize : function () {
-            this.template = _.template(customerFormTemplate);
-            this.render();
-        },
+            events : {
+                "click #customerDelete" : "delete",
+                "click #customerSave" : "save"
+            },
 
-        render : function () {
-            this.$el.html(this.template({
-                customer : this.model.toJSON()
-            }));
-        },
+            initialize : function () {
+                this.template = _.template(customerFormTemplate);
+                this.render();
+            },
 
-        delete : function () {
-            this.model.destroy({
-                success : function () {
-                    Backbone.history.navigate("customer", true);
-                }
-            });
-        },
+            render : function () {
+                this.$el.html(this.template({
+                    customer : this.model.toJSON()
+                }));
+            },
 
-        save : function () {
-            var self = this;
+            delete : function () {
+                this.model.destroy({
+                    success : function () {
+                        Backbone.history.navigate("customer", true);
+                    }
+                });
+            },
 
-            this.model.save({
-                firstName : $("#firstName").val(),
-                lastName : $("#lastName").val()
-            }, {
-                wait : true,
-                success : function (model) {
-                    self.collection.add(model);
-                    Backbone.history.navigate("customer", true);
-                }
-            });
-        }
+            save : function () {
+                var self = this;
+
+                this.model.save({
+                    firstName : $("#firstName").val(),
+                    lastName : $("#lastName").val()
+                }, {
+                    wait : true,
+                    success : function (model) {
+                        self.collection.add(model);
+                        Backbone.history.navigate("customer", true);
+                    }
+                });
+            }
+        });
+
+        return CustomerForm;
     });
-
-    return CustomerForm;
-});
+})();

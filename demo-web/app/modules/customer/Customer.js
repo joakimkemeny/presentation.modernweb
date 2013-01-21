@@ -1,22 +1,25 @@
-define([
-    "backbone"
-], function (Backbone) {
+(function(){
     "use strict";
 
-    var Customer = {};
+    define([
+        "backbone"
+    ], function (Backbone) {
 
-    Customer.Model = Backbone.Model.extend({
-        defaults : {
-            firstName : "",
-            lastName : ""
-        },
-        urlRoot : "http://localhost:8080/api/customer"
+        var Customer = {};
+
+        Customer.Model = Backbone.Model.extend({
+            defaults : {
+                firstName : "",
+                lastName : ""
+            },
+            urlRoot : "http://localhost:8080/api/customer"
+        });
+
+        Customer.Collection = Backbone.Collection.extend({
+            model : Customer.Model,
+            url : "http://localhost:8080/api/customer"
+        });
+
+        return Customer;
     });
-
-    Customer.Collection = Backbone.Collection.extend({
-        model : Customer.Model,
-        url : "http://localhost:8080/api/customer"
-    });
-
-    return Customer;
-});
+})();
