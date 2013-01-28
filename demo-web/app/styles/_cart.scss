@@ -1,0 +1,74 @@
+.cart {
+
+    margin: $padding;
+    padding-top: $padding * 2;
+    width: 215px;
+
+    header {
+        text-align: center;
+
+        .icon-shopping-cart {
+            color: $backgroundColor;
+            font-size: 6em;
+        }
+
+        h2 {
+            color: $lightestBackgroundColor;
+            font-size: 2em;
+            font-weight: normal;
+            margin-top: $padding * 2;
+        }
+    }
+
+    ul {
+        @include border-top-radius(10px);
+
+        background-color: $lightBackgroundColor;
+        margin: 0;
+        padding: $padding 0;
+
+        li {
+            list-style: none;
+            margin: 0;
+            padding: ($padding / 2) $padding * 2;
+
+            &:nth-child(even) {
+                background-color: $lighterBackgroundColor;
+            }
+
+            i {
+                color: $darkBackgroundColor;
+                cursor: pointer;
+            }
+
+            span {
+                float: right;
+                font-size: 0.9em;
+                font-weight: bold;
+            }
+        }
+    }
+
+    footer {
+        background-color: $lightestBackgroundColor;
+        border-width: 0px 0px 5px 0;
+
+        -moz-border-image: url(../images/border.png) 0 0 10 repeat;
+        -webkit-border-image: url(../images/border.png) 0 0 10 repeat;
+        -o-border-image: url(../images/border.png) 0 0 10 repeat;
+        border-image: url(../images/border.png) 0 0 10 repeat;
+
+        font-weight: bold;
+        margin-top: 2px;
+        padding: $padding ($padding * 2) ($padding * 2) ($padding * 2);
+
+        a {
+            width: 100%;
+        }
+
+        span {
+            float: right;
+            font-size: 0.9em;
+        }
+    }
+}
