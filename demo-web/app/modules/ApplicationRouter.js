@@ -3,9 +3,10 @@ define([
     "backbone",
     "modules/cart/Cart",
     "modules/cart/CartView",
+    "modules/checkout/CheckoutView",
     "modules/product/Product",
     "modules/product/ProductsView"
-], function ($, Backbone, Cart, CartView, Product, ProductsView) {
+], function ($, Backbone, Cart, CartView, CheckoutView, Product, ProductsView) {
     "use strict";
 
     var ProductRouter = Backbone.Router.extend({
@@ -14,6 +15,9 @@ define([
             var self = this;
 
             this.showCart();
+
+            $(".wrapper").addClass("show-products");
+            $(".wrapper").removeClass("show-checkout");
 
             if (this.productsView) {
                 $(".products", this.productsView.$el).show();
@@ -60,11 +64,25 @@ define([
             }
         },
 
+        showCheckout: function () {
+
+            var self = this;
+
+            this.showCart();
+
+            $(".wrapper").removeClass("show-products");
+            $(".wrapper").addClass("show-checkout");
+
+            if (!this.checkoutView) {
+                this.checkoutView = new CheckoutView();
+            }
+        },
+
         routes : {
             "" : "listProducts",
             "product" : "listProducts",
             "product/:id" : "showProduct",
-            "checkout/delivery" : "showDeliveryForm"
+            "checkout" : "showCheckout"
         }
     });
 
@@ -76,6 +94,13 @@ define([
     var showSlide = function (element) {
         element.animate({
             height : "show"
+        }, 400);
+    };
+
+    var slideLeft = function (element) {
+        element.animate({
+            left : "-=200",
+            opacity : 0
         }, 400);
     };
 

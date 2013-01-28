@@ -4,6 +4,7 @@
 @import "mixins";
 //
 @import "cart";
+@import "checkout";
 @import "product";
 
 * {
@@ -15,17 +16,55 @@ body {
     padding: $padding;
 }
 
-.wrapper {
-    @include flex-horizontal;
+#products,
+#cart,
+#checkout {
+    @include single-transition(all, 0.5s, ease-out);
+}
 
-    max-width: 800px;
-    margin: 0 auto;
+.show-products {
 
-    & > * {
-        @include flex(1);
+    [href="#product"] {
+        display: none;
     }
 
-    & > .no-flex {
-        @include flex(0);
+    #products {
+        float: left;
+        opacity: 1;
+        width: 500px;
+    }
+    #cart {
+        float: left;
+    }
+    #checkout {
+        float: left;
+        margin-right: -500px;
+        opacity: 0;
+        width: 500px;
+    }
+}
+
+$default-transition-function : ease-out;
+
+.show-checkout {
+
+    [href="#checkout"] {
+        display: none;
+    }
+
+    #products {
+        float: left;
+        width: 500px;
+        opacity: 0;
+        margin-left: -500px;
+    }
+    #cart {
+        float: left;
+    }
+    #checkout {
+        float: left;
+        opacity: 1;
+        margin-right: 0;
+        width: 500px;
     }
 }
