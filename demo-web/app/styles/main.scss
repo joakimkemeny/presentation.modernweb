@@ -1,105 +1,31 @@
 @import "compass_twitter_bootstrap_awesome";
-@import "compass/css3/border-radius";
-@import "compass/typography/lists/inline-block-list";
+//
+@import "variables";
+@import "mixins";
+//
+@import "cart";
+@import "product";
 
-@import "_mixins";
-@import "../modules/customer/Customer";
-@import "../modules/order/Order";
-
-$backgroundColor: #f0f0f0;
-$borderColor: #ccc;
-$formColor: #f9f9f9;
-$padding : 20px;
-
-
-body {
-    background-color: $backgroundColor;
-    margin: $padding;
+* {
+    @include box-sizing(border-box);
 }
 
-.customer,
-.order {
+body {
+    background-color: $darkBackgroundColor;
+    padding: $padding;
+}
+
+.wrapper {
     @include flex-horizontal;
+
+    max-width: 800px;
+    margin: 0 auto;
 
     & > * {
         @include flex(1);
-
-        &:last-child {
-            @include flex(0);
-
-            border-left: 1px solid $borderColor;
-            margin-left: $padding;
-            padding-left: $padding;
-            width: 400px;
-        }
-    }
-}
-
-header {
-    @include flex-horizontal;
-
-    border-bottom: 1px solid $borderColor;
-    margin-bottom: $padding;
-
-    h1 {
-        @include flex(1);
-
-        font-size: 28px;
-        margin: 0;
     }
 
-    .button-toolbar {
+    & > .no-flex {
         @include flex(0);
-    }
-}
-
-form {
-    background-color: $formColor;
-    padding: $padding 0;
-}
-
-.box {
-    @include border-radius(10px);
-
-    background-color: white;
-    border: 5px solid $borderColor;
-    padding: 20px;
-
-    /*
-    ul {
-        @include inline-block-list-container;
-        @include border-top-radius(5px);
-
-        background-color: $borderColor;
-        margin: 0 -($padding);
-        position: relative;
-        top: -($padding);
-
-        li {
-            @include inline-block-list-item(10px);
-
-            a {
-                @include border-top-radius(10px);
-
-                background-color: #eee;
-                border-bottom: 0;
-                display: block;
-                margin-right: 0;
-                margin-top: 5px;
-                padding: 5px 10px;
-
-                &.active {
-                    background-color: #ffffff;
-                }
-            }
-        }
-    }*/
-}
-
-table {
-    table-layout: fixed;
-
-    .right {
-        text-align: right;
     }
 }

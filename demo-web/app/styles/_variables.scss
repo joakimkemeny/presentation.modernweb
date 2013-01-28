@@ -1,0 +1,12 @@
+$baseColor1: #a52a2a;
+$baseColor2: #bc8f8f;
+
+$padding: 10px;
+
+$darkBackgroundColor: darken($baseColor1, 20%);
+$darkerBackgroundColor: darken($baseColor1, 30%);
+
+$backgroundColor: $baseColor2;
+$lightBackgroundColor: lighten($baseColor2, 10%);
+$lighterBackgroundColor: lighten($baseColor2, 15%);
+$lightestBackgroundColor: lighten($baseColor2, 20%);

@@ -1,0 +1,75 @@
+@import "compass/css3";
+@import "variables";
+
+.products {
+    @include border-radius(10px);
+
+    background-color: $darkerBackgroundColor;
+    display: none;
+    margin: $padding;
+    padding: $padding;
+
+    header {
+        @include border-top-radius(5px);
+
+        background-color: $backgroundColor;
+        padding: $padding;
+    }
+
+    ul {
+        background-color: $lightBackgroundColor;
+        margin: 0;
+        padding: $padding 0;
+
+        li {
+            @include clearfix;
+
+            cursor: pointer;
+            list-style: none;
+            margin: 0;
+            padding: $padding ($padding * 2) 0 ($padding * 2);
+
+            &:nth-child(even) {
+                background-color: $lighterBackgroundColor;
+            }
+
+            &:hover {
+                img {
+                    @include scale(2.2, 2.2);
+                }
+            }
+
+            img {
+                @include single-transition(all, 0.2s);
+
+                float: left;
+                margin-right: 20px;
+                width: 30px;
+            }
+
+            span {
+                float: left;
+                line-height: 30px;;
+            }
+
+            button {
+                float: right;
+                margin-bottom: $padding;
+            }
+
+            .details {
+                @include border-radius(5px);
+
+                background-color: $lightestBackgroundColor;
+                border: 1px solid $darkBackgroundColor;
+                clear: both;
+                display: none;
+                margin-bottom: $padding;
+
+                & > * {
+                    padding: $padding;
+                }
+            }
+        }
+    }
+}

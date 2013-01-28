@@ -1,29 +1,24 @@
-(function(){
+define([
+    "jquery",
+    "backbone",
+    "underscore",
+    "modules/ApplicationRouter"
+], function ($, Backbone, _, ApplicationRouter) {
     "use strict";
 
-    define([
-        "jquery",
-        "backbone",
-        "underscore",
-        "modules/customer/CustomerRouter",
-        "modules/order/OrderRouter"
-    ], function ($, Backbone, _, CustomerRouter, OrderRouter) {
+    var ModernWeb = {};
 
-        var ModernWeb = {};
+    ModernWeb.start = function () {
 
-        ModernWeb.start = function () {
+        _.templateSettings = {
+            evaluate : /<%([\s\S]+?)%>/g,
+            interpolate : /\{\{(.+?)\}\}/g,
+            escape : /<%-([\s\S]+?)%>/g
+        };
 
-            _.templateSettings = {
-                evaluate : /<%([\s\S]+?)%>/g,
-                interpolate : /\{\{(.+?)\}\}/g,
-                escape : /<%-([\s\S]+?)%>/g
-            };
+        new ApplicationRouter();
+        Backbone.history.start();
+    };
 
-            new CustomerRouter();
-            new OrderRouter();
-            Backbone.history.start();
-        }
-
-        return ModernWeb;
-    });
-})();
+    return ModernWeb;
+});

@@ -1,4 +1,4 @@
-(function(){
+(function () {
     "use strict";
 
     require.config({
@@ -15,7 +15,7 @@
 
         paths : {
             jquery : 'vendor/jquery.min',
-            backbone : "../components//backbone/backbone-min",
+            backbone : "../components/backbone/backbone-min",
             underscore : "../components/underscore/underscore",
             text : "../components/requirejs-text/text",
 
