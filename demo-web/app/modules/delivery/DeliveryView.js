@@ -12,7 +12,7 @@
         var attachEventHandlers = function (collection) {
             _.each(collection, function(deliveryOption) {
                 $("#btn" + deliveryOption.shipmentMethod.method).click(function() {
-                    $("#shipmentPrice").text(deliveryOption.shipmentMethod.price.amount);
+                    $("#shipmentPrice").text(deliveryOption.price.format());
                 });
             })
         },
