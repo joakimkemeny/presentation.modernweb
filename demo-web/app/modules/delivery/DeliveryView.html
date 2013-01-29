@@ -1,34 +1,20 @@
 <div class="checkout">
     <div class="delivery">
         <header>
-            <h2>Leveransadress</h2>
+            <h2>Frakt</h2>
         </header>
         <div class="form">
-            <p>Till vilken adress vill du att vi levererar dina varor?</p>
+            <p>Hur vill du att vi fraktar dina varor?</p>
             <form>
-                <div>
-                    <label>Namn</label>
-                    <input type="text">
+                <div class="btn-group" data-toggle="buttons-radio">
+                    <% _.each(deliveryOptions, function(deliveryOption) { %>
+                    <button id="btn{{deliveryOption.shipmentMethod.method}}" type="button" class="btn" style="margin-left:0;width:130px">{{deliveryOption.shipmentMethod.method}}</button>
+                    <% }) %>
                 </div>
-                <div>
-                    <label>Adress</label>
-                    <input type="text">
-                </div>
-                <div>
-                    <label>Postadress</label>
-                    <input type="text" style="width:70px">
-                    <input type="text" style="width:225px;margin-left:5px">
-                </div>
-                <div>
-                    <label style="font-weight: normal">E-post</label>
-                    <input type="email">
-                </div>
-
-                <a class="btn" href="#deliveryOptions">Gå vidare <i class="icon-arrow-right"></i></a>
+                <button class="btn">Gå vidare <i class="icon-arrow-down"></i></button>
             </form>
         </div>
     </div>
-<!--
     <div class="confirm">
         <header style="padding-left:0">
             <h2>Bekräfta</h2>
@@ -65,7 +51,7 @@
             <tbody class="frakt">
             <tr>
                 <td colspan="3">Frakt</td>
-                <td>150 kr</td>
+                <td id="shipmentPrice">0 kr</td>
             </tr>
             </tbody>
             <tfoot>
@@ -79,5 +65,4 @@
             <button class="btn"><i class="icon-ok"></i> Skicka beställning</button>
         </footer>
     </div>
--->
 </div>

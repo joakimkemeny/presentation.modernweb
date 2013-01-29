@@ -4,9 +4,11 @@ define([
     "modules/cart/Cart",
     "modules/cart/CartView",
     "modules/checkout/CheckoutView",
+    "modules/delivery/DeliveryOption",
+    "modules/delivery/DeliveryView",
     "modules/product/Product",
     "modules/product/ProductsView"
-], function ($, Backbone, Cart, CartView, CheckoutView, Product, ProductsView) {
+], function ($, Backbone, Cart, CartView, CheckoutView, DeliveryOption, DeliveryView, Product, ProductsView) {
     "use strict";
 
     var ProductRouter = Backbone.Router.extend({
@@ -78,11 +80,18 @@ define([
             }
         },
 
+        showDeliveryOptions : function () {
+            if (!this.deliveryOptionView) {
+                this.deliveryOptionView = new DeliveryView();
+            }
+        },
+
         routes : {
             "" : "listProducts",
             "product" : "listProducts",
             "product/:id" : "showProduct",
-            "checkout" : "showCheckout"
+            "checkout" : "showCheckout",
+            "deliveryOptions" : "showDeliveryOptions"
         }
     });
 
