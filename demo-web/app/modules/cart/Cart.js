@@ -16,7 +16,7 @@ define([
     });
 
     Cart.Collection = Backbone.Collection.extend({
-        url : "http://localhost:8080/api/order",
+        url : "http://local.communityhack.org/api/order",
         model : Cart.Model,
 
         addToCart : function (newCartItem) {

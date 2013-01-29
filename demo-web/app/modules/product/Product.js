@@ -6,11 +6,11 @@ define([
     var Product = {};
 
     Product.Model = Backbone.Model.extend({
-        urlRoot : "http://localhost:8080/api/product"
+        urlRoot : "http://local.communityhack.org/api/product"
     });
 
     Product.Collection = Backbone.Collection.extend({
-        url : "http://localhost:8080/api/product",
+        url : "http://local.communityhack.org/api/product",
         model : Product.Model
     });
 

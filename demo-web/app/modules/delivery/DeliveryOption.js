@@ -32,8 +32,8 @@
                         "currency":""
                     }
             },
-            urlRoot: "http://local.communityhack.org:8080/api/deliveryOption",
-//            urlRoot: "3rd-party.net:8080/api/deliveryOption"
+//            urlRoot: "http://local.communityhack.org/api/deliveryOption",
+            urlRoot: "http://3rd-party.info:8080/api/deliveryOption",
 
             // Nested Price model handled à la http://stackoverflow.com/a/9904874
             model: {
@@ -55,8 +55,8 @@
 
         DeliveryOption.Collection = Backbone.Collection.extend({
             model: DeliveryOption.Model,
-            url: "http://local.communityhack.org:8080/api/deliveryOption"
-//            url: "3rd-party.net:8080/api/deliveryOption"
+//            url: "http://local.communityhack.org/api/deliveryOption"
+            url: "http://3rd-party.info:8080/api/deliveryOption"
         });
 
         return DeliveryOption;
