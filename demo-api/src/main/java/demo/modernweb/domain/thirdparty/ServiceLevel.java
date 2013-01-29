@@ -15,7 +15,7 @@ public class ServiceLevel {
     }
 
     public enum Level {
-        TO_DOOR("to your door"), TO_DELIVERY_CENTRAL("to your closest delivery central");
+        TO_DOOR("Till dörren"), TO_DELIVERY_CENTRAL("Till fraktcentral");
 
         private final String str;
         private Level(String str) {

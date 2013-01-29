@@ -5,14 +5,20 @@ package demo.modernweb.domain.thirdparty;
  */
 public class DeliveryOption {
 
+    private int id;
     private ShipmentMethod shipmentMethod;
     private ServiceLevel serviceLevel;
     private Price price;
 
-    public DeliveryOption(ShipmentMethod shipmentMethod, ServiceLevel serviceLevel) {
+    public DeliveryOption(int id, ShipmentMethod shipmentMethod, ServiceLevel serviceLevel) {
+        this.id = id;
         this.shipmentMethod = shipmentMethod;
         this.serviceLevel = serviceLevel;
         this.price = shipmentMethod.price.add(serviceLevel.price);
+    }
+
+    public int getId() {
+        return id;
     }
 
     public ShipmentMethod getShipmentMethod() {

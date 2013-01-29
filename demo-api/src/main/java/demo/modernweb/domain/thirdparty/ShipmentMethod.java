@@ -15,7 +15,7 @@ public class ShipmentMethod {
     }
 
     public enum Method {
-        BY_AIR("by air"), BY_TRAIN("by train");
+        BUSSGODS("Bussgods"), UPS("UPS");
 
         private final String str;
         private Method(String str) {

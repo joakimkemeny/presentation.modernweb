@@ -18,20 +18,40 @@ import java.util.List;
 public class DeliveryManager {
 
     private List<DeliveryOption> deliveryOptions = new ArrayList<>();
+    private int deliveryOptionId;
 
     @PostConstruct
     protected void setupDeliveryOptions() {
         deliveryOptions.add(new DeliveryOption(
+                ++deliveryOptionId,
                 new ShipmentMethod(
-                        new Price(100000, Price.Currency.SEK_ORE),
-                        ShipmentMethod.Method.BY_TRAIN),
+                        new Price(4000, Price.Currency.SEK_ORE),
+                        ShipmentMethod.Method.BUSSGODS),
                 new ServiceLevel(
-                        new Price(100000, Price.Currency.SEK_ORE),
+                        new Price(4000, Price.Currency.SEK_ORE),
                         ServiceLevel.Level.TO_DELIVERY_CENTRAL)
+        ));
+        deliveryOptions.add(new DeliveryOption(
+                ++deliveryOptionId,
+                new ShipmentMethod(
+                        new Price(8000, Price.Currency.SEK_ORE),
+                        ShipmentMethod.Method.UPS),
+                new ServiceLevel(
+                        new Price(6000, Price.Currency.SEK_ORE),
+                        ServiceLevel.Level.TO_DOOR)
         ));
     }
 
     public List<DeliveryOption> listDeliveryOptions() {
         return deliveryOptions;  // TODO: Should return a clone? Deep clone even?
+    }
+
+    public DeliveryOption getOption(int id) throws IllegalArgumentException {
+        for (DeliveryOption deliveryOption : deliveryOptions) {
+            if (deliveryOption.getId() == id) {
+                return deliveryOption;
+            }
+        }
+        throw new IllegalArgumentException("No delivery option with id " + id);
     }
 }
