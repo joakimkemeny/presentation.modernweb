@@ -1,14 +1,14 @@
 define([
     "backbone",
     "collections/CartItemCollection",
-    "models/BaseModel",
+    "framework/Model",
     "models/CartItemModel",
     "models/DeliveryAddressModel"
-], function (Backbone, CartItemCollection, BaseModel, CartItemModel, DeliveryAddressModel) {
+], function (Backbone, CartItemCollection, Model, CartItemModel, DeliveryAddressModel) {
     "use strict";
 
-    var CartModel = BaseModel.extend({
-        urlRoot : "http://local.communityhack.org/api/order",
+    var CartModel = Model.extend({
+        urlRoot : "/api/order",
 
         defaults : {
             deliveryAddress : new DeliveryAddressModel(),

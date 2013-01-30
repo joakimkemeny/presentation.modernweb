@@ -4,7 +4,7 @@ define([
     "use strict";
 
     var ProductModel = Backbone.Model.extend({
-        urlRoot : "http://local.communityhack.org/api/product",
+        urlRoot : "/api/product",
 
         defaults : {
             id : null,

@@ -1,27 +1,17 @@
 define([
-    "jquery",
     "backbone",
     "underscore",
-    "framework/WebSocket",
     "routes/ApplicationRouter"
-], function ($, Backbone, _, webSocket, ApplicationRouter) {
+], function (Backbone, _, ApplicationRouter) {
     "use strict";
 
-    var ModernWeb = {};
+    var App = {};
 
-    ModernWeb.start = function () {
-
-        _.templateSettings = {
-            evaluate : /<%([\s\S]+?)%>/g,
-            interpolate : /\{\{(.+?)\}\}/g,
-            escape : /<%-([\s\S]+?)%>/g
-        };
-
+    App.start = function () {
         new ApplicationRouter();
-        webSocket.connect();
         Backbone.history.start();
     };
 
 
-    return ModernWeb;
+    return App;
 });

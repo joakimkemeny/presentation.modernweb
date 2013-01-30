@@ -10,46 +10,23 @@ define([
 
         constructor : function (protocol) {
             this.protocol = protocol;
-            this.connectDeferred = $.Deferred();
         },
 
         connect : function () {
-            var ws;
-            var url = "ws://localhost:8080/ws";
+            var self = this;
 
-            if (window.WebSocket) {
-                ws = new window.WebSocket(url, this.protocol);
-            } else {
-                throw new Error("WebSockets is not supported");
-            }
+            this.ws = new window.WebSocket("ws://localhost:8080/ws", this.protocol);
 
-            var that = this;
-
-            $(ws).on("open", function () {
-                that.connectDeferred.resolve(that);
-            });
-            $(ws).on("close", function () {
-                that.connectDeferred = $.Deferred();
-            });
-            $(ws).on("message", function (e) {
+            $(this).on("message", function (e) {
                 var message = JSON.parse(e.originalEvent.data);
-                that.trigger(message.command, message.data);
+                self.trigger(message.command, message.data);
             });
-
-            this.ws = ws;
-
-            $(window).on("unload", function () {
-                ws.close();
-                ws = null;
-            });
-        },
-
-        send : function (command, data) {
-            // Do nothing
         }
     });
 
     _.extend(WebSocket.prototype, Backbone.Events);
 
-    return new WebSocket("modernweb");
+    return {
+        product : new WebSocket("product")
+    };
 });
