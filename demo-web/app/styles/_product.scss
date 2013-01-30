@@ -1,11 +1,9 @@
 @import "compass/css3";
-@import "variables";
 
 .products {
     @include border-radius(10px);
 
     background-color: $darkerBackgroundColor;
-    display: none;
     margin: $padding;
     padding: $padding;
 
@@ -27,47 +25,37 @@
             cursor: pointer;
             list-style: none;
             margin: 0;
-            padding: $padding ($padding * 2) 0 ($padding * 2);
+            padding: $padding ($padding * 2);
 
-            &:nth-child(even) {
-                background-color: $lighterBackgroundColor;
-            }
+            .info {
+                @include clearfix;
 
-            &:hover {
                 img {
-                    @include scale(2.2, 2.2);
+                    @include single-transition(all, 0.2s);
+
+                    float: left;
+                    height: 30px;
+                    margin-right: $padding * 2;
                 }
-                i.icon-star {
-                    opacity: 0.8;
+
+                span {
+                    float: left;
+                    line-height: 30px;;
                 }
-            }
 
-            img {
-                @include single-transition(all, 0.2s);
+                .icon-star {
+                    @include single-transition(all, 0.5s);
 
-                float: left;
-                margin-right: 20px;
-                width: 30px;
-            }
+                    font-size: 10px;
+                    float: right;
+                    line-height: 30px;;
+                    opacity: 0.3;
+                }
 
-            span {
-                float: left;
-                line-height: 30px;;
-            }
-
-            i.icon-star {
-                @include single-transition(all, 0.5s);
-
-                font-size: 10px;
-                float: right;
-                line-height: 30px;;
-                opacity: 0.3;
-            }
-
-            button {
-                float: right;
-                margin-bottom: $padding;
-                margin-left: $padding;
+                button {
+                    float: right;
+                    margin-left: $padding;
+                }
             }
 
             .details {
@@ -75,13 +63,25 @@
 
                 background-color: $lightestBackgroundColor;
                 border: 1px solid $darkBackgroundColor;
-                clear: both;
                 display: none;
-                margin-bottom: $padding;
+                margin-top: $padding;
 
-                & > * {
-                    padding: $padding;
+                p {
+                    padding: $padding $padding 0 $padding;
                 }
+            }
+
+            &:hover {
+                img {
+                    @include scale(2.2, 2.2);
+                }
+                .icon-star {
+                    opacity: 0.8;
+                }
+            }
+
+            &:nth-child(even) {
+                background-color: $lighterBackgroundColor;
             }
         }
     }

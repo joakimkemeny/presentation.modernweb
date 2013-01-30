@@ -1,8 +1,6 @@
-<div>
+<div class="info">
     <img src="images/coffee/<%- image %>">
-    <span>
-        <%- name %>
-    </span>
+    <span><%- name %></span>
 
     <% if (stockStatus > quantity) { %>
     <button class="btn"><i class="icon-plus"></i> Beställ</button>
@@ -10,6 +8,7 @@
 
     <% for (var i = 0; i < intensity; i++) { %><i class="icon-star"></i><% } %>
 </div>
+
 <div class="details" data-product-id="<%- id %>">
     <p><b>Beskrivning</b></p>
     <p><%- info %></p>
