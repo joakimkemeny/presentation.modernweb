@@ -11,6 +11,7 @@ define([
             name : null,
             info : null,
             image : null,
+            intensity : null,
             stockStatus : null,
             quantity : null,
             price : null

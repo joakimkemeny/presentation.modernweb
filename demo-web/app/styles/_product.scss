@@ -37,6 +37,9 @@
                 img {
                     @include scale(2.2, 2.2);
                 }
+                i.icon-star {
+                    opacity: 0.8;
+                }
             }
 
             img {
@@ -52,9 +55,19 @@
                 line-height: 30px;;
             }
 
+            i.icon-star {
+                @include single-transition(all, 0.5s);
+
+                font-size: 10px;
+                float: right;
+                line-height: 30px;;
+                opacity: 0.3;
+            }
+
             button {
                 float: right;
                 margin-bottom: $padding;
+                margin-left: $padding;
             }
 
             .details {

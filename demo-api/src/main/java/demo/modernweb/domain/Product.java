@@ -6,17 +6,19 @@ public class Product {
     private String name;
     private String info;
     private String image;
+    private Integer intensity;
     private Integer stockStatus;
     private Integer quantity;
-    private Integer price;
+    private float price;
 
     public Product() {
     }
 
-    public Product(Integer id, String name, String info, String image, Integer stockStatus, Integer quantity, Integer price) {
+    public Product(Integer id, String name, String info, String image, Integer intensity, Integer stockStatus, Integer quantity, float price) {
         this.id = id;
         this.name = name;
         this.info = info;
+        this.intensity = intensity;
         this.image = image;
         this.stockStatus = stockStatus;
         this.quantity = quantity;
@@ -55,6 +57,14 @@ public class Product {
         this.image = image;
     }
 
+    public Integer getIntensity() {
+        return intensity;
+    }
+
+    public void setIntensity(Integer intensity) {
+        this.intensity = intensity;
+    }
+
     public Integer getStockStatus() {
         return stockStatus;
     }
@@ -71,7 +81,7 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public Integer getPrice() {
+    public float getPrice() {
         return price;
     }
 
