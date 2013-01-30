@@ -5,7 +5,7 @@ define([
 ], function (Backbone, BaseModel, PriceModel) {
     "use strict";
 
-    var DeliveryOptionModel = Backbone.Model.extend({
+    var DeliveryOptionModel = BaseModel.extend({
         urlRoot : "http://3rd-party.info:8080/api/deliveryOption",
 
         defaults : {

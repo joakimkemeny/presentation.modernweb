@@ -2,9 +2,9 @@ define([
     "jquery",
     "backbone",
     "underscore",
-    "models/DeliveryOptionModel",
+    "collections/DeliveryOptionCollection",
     "text!templates/Delivery.html"
-], function ($, Backbone, _, DeliveryOptionModel, deliveryTemplate) {
+], function ($, Backbone, _, DeliveryOptionCollection, deliveryTemplate) {
     "use strict";
 
     var attachEventHandlers = function (collection) {
@@ -22,7 +22,7 @@ define([
         initialize : function () {
             var self = this;
             this.template = _.template(deliveryTemplate);
-            this.collection = new DeliveryOptionModel.Collection();
+            this.collection = new DeliveryOptionCollection();
             this.collection.fetch({
                 success : function () {
                     self.render(self);
