@@ -17,7 +17,7 @@ define([
 
             this.ws = new window.WebSocket("ws://localhost:8080/ws", this.protocol);
 
-            $(this).on("message", function (e) {
+            $(this.ws).on("message", function (e) {
                 var message = JSON.parse(e.originalEvent.data);
                 self.trigger(message.command, message.data);
             });
