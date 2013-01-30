@@ -1,9 +1,9 @@
 define([
     "backbone",
     "underscore",
-    "modules/cart/Cart",
-    "text!modules/cart/CartItemView.html"
-], function (Backbone, _, Cart, cartItemTemplate) {
+    "models/CartModel",
+    "text!templates/CartItem.html"
+], function (Backbone, _, CartModel, cartItemTemplate) {
     "use strict";
 
     var CartItemView = Backbone.View.extend({
@@ -25,7 +25,7 @@ define([
         },
 
         removeFromCart : function () {
-            Cart.globalCart.remove(this.model);
+            CartModel.globalCart.remove(this.model);
         }
     });
 

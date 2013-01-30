@@ -1,9 +1,9 @@
 define([
     "backbone",
     "underscore",
-    "modules/cart/Cart",
-    "text!modules/product/ProductsItemView.html"
-], function (Backbone, _, Cart, productsItemTemplate) {
+    "models/CartModel",
+    "text!templates/ProductsItem.html"
+], function (Backbone, _, CartModel, productsItemTemplate) {
     "use strict";
 
     var ProductsItemView = Backbone.View.extend({
@@ -27,13 +27,13 @@ define([
         },
 
         addToCart : function (e) {
-            Cart.globalCart.addToCart(this.model);
+            CartModel.globalCart.addToCart(this.model);
             e.stopPropagation();
         },
 
-         showProduct : function () {
-             Backbone.history.navigate("product/" + this.model.id, true);
-         }
+        showProduct : function () {
+            Backbone.history.navigate("product/" + this.model.id, true);
+        }
     });
 
     return ProductsItemView;

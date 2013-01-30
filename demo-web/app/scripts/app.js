@@ -2,7 +2,7 @@ define([
     "jquery",
     "backbone",
     "underscore",
-    "modules/ApplicationRouter"
+    "routes/ApplicationRouter"
 ], function ($, Backbone, _, ApplicationRouter) {
     "use strict";
 

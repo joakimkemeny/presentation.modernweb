@@ -2,8 +2,8 @@ define([
     "jquery",
     "backbone",
     "underscore",
-    "modules/cart/CartItemView",
-    "text!modules/cart/CartView.html"
+    "views/CartItemView",
+    "text!templates/Cart.html"
 ], function ($, Backbone, _, CartItemView, cartViewTemplate) {
     "use strict";
 
@@ -14,8 +14,8 @@ define([
         initialize : function () {
             this.template = _.template(cartViewTemplate);
             this.render();
-            //this.listenTo(this.model, "change", this.render);
-            this.listenTo(this.model.get("products"), "add change remove", this.render);
+            this.listenTo(this.model, "change", this.render);
+            this.listenTo(this.model.get("items"), "add change remove", this.render);
         },
 
         render : function () {
@@ -25,7 +25,7 @@ define([
             }));
 
             var $ul = $("ul", this.$el);
-            this.model.get("products").each(function (model) {
+            this.model.get("items").each(function (model) {
                 var view = new CartItemView({
                     model : model
                 });

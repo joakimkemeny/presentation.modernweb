@@ -2,8 +2,8 @@ define([
     "jquery",
     "backbone",
     "underscore",
-    "modules/product/ProductsItemView",
-    "text!modules/product/ProductsView.html"
+    "views/ProductsItemView",
+    "text!templates/Products.html"
 ], function ($, Backbone, _, ProductsItemView, productsViewTemplate) {
     "use strict";
 

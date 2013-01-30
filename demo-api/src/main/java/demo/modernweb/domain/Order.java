@@ -8,16 +8,16 @@ public class Order {
     private Integer id;
     private DeliveryAddress deliveryAddress;
     private String shipmentMethod;
-    private List<OrderItem> products = new ArrayList<OrderItem>();
+    private List<OrderItem> items = new ArrayList<OrderItem>();
 
     public Order() {
     }
 
-    public Order(Integer id, DeliveryAddress deliveryAddress, String shipmentMethod, List<OrderItem> products) {
+    public Order(Integer id, DeliveryAddress deliveryAddress, String shipmentMethod, List<OrderItem> items) {
         this.id = id;
         this.deliveryAddress = deliveryAddress;
         this.shipmentMethod = shipmentMethod;
-        this.products = products;
+        this.items = items;
     }
 
     public Integer getId() {
@@ -44,11 +44,11 @@ public class Order {
         this.shipmentMethod = shipmentMethod;
     }
 
-    public List<OrderItem> getProducts() {
-        return products;
+    public List<OrderItem> getItems() {
+        return items;
     }
 
-    public void setProducts(List<OrderItem> products) {
-        this.products = products;
+    public void setItems(List<OrderItem> items) {
+        this.items = items;
     }
 }

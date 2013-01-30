@@ -2,9 +2,9 @@ define([
     "jquery",
     "backbone",
     "underscore",
-    "modules/cart/Cart",
-    "text!modules/checkout/CheckoutView.html"
-], function ($, Backbone, _, Cart, checkoutViewTemplate) {
+    "models/CartModel",
+    "text!templates/Checkout.html"
+], function ($, Backbone, _, CartModel, checkoutViewTemplate) {
     "use strict";
 
     var CheckoutView = Backbone.View.extend({
@@ -26,11 +26,9 @@ define([
         },
 
         checkout : function (e) {
-            Cart.globalCart.save(null, {
-                wait: true,
+            CartModel.globalCart.save([], {
                 success: function () {
-                    console.log("Success");
-                    //Cart.globalCart.emptyCart();
+                    CartModel.globalCart.emptyCart();
                     Backbone.history.navigate("product", true);
                 }
             });

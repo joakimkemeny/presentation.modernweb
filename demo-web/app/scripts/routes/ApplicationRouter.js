@@ -1,14 +1,14 @@
 define([
     "jquery",
     "backbone",
-    "modules/cart/Cart",
-    "modules/cart/CartView",
-    "modules/checkout/CheckoutView",
-    "modules/delivery/DeliveryOption",
-    "modules/delivery/DeliveryView",
-    "modules/product/Product",
-    "modules/product/ProductsView"
-], function ($, Backbone, Cart, CartView, CheckoutView, DeliveryOption, DeliveryView, Product, ProductsView) {
+    "collections/ProductCollection",
+    "models/CartModel",
+    "models/DeliveryOptionModel",
+    "views/CartView",
+    "views/CheckoutView",
+    "views/DeliveryView",
+    "views/ProductsView"
+], function ($, Backbone, ProductCollection, CartModel, DeliveryOptionModel, CartView, CheckoutView, DeliveryView, ProductsView) {
     "use strict";
 
     var ProductRouter = Backbone.Router.extend({
@@ -23,27 +23,23 @@ define([
 
             if (this.productsView) {
                 $(".products", this.productsView.$el).show();
-
                 if (productId) {
                     var $selected = $(".products [data-product-id=" + productId + "]");
                     if ($selected.is(":hidden")) {
                         hideSlide($(".products [data-product-id]"));
                         showSlide($selected);
-
                     }
                 } else {
                     hideSlide($(".products [data-product-id]"));
                 }
-
             } else {
-                this.products = new Product.Collection();
+                this.products = new ProductCollection();
                 this.products.fetch({
                     success : function (products) {
                         self.productsView = new ProductsView({
                             collection : products
                         });
                         $(".products", self.productsView.$el).show();
-
                         if (productId) {
                             showSlide($(".products [data-product-id=" + productId + "]"));
                         }
@@ -54,19 +50,18 @@ define([
 
         showProduct : function (productId) {
             var self = this;
-
             this.listProducts(productId);
         },
 
         showCart : function () {
             if (!this.cartView) {
                 this.cartView = new CartView({
-                    model : Cart.globalCart
+                    model : CartModel.globalCart
                 });
             }
         },
 
-        showCheckout: function () {
+        showCheckout : function () {
 
             var self = this;
 

@@ -34,7 +34,7 @@ public class OrderManager {
         order.setId(++orderId);
         orders.add(order);
 
-        for (OrderItem product : order.getProducts()) {
+        for (OrderItem product : order.getItems()) {
             productManager.updateStockStatus(product.getId(), product.getQuantity());
         }
 

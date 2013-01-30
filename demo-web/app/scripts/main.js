@@ -19,7 +19,7 @@
             underscore : "../components/underscore/underscore",
             text : "../components/requirejs-text/text",
 
-            modules : "../modules"
+            templates : "../templates"
         }
     });
 
