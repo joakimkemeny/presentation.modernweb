@@ -34,16 +34,4 @@ public class OrderController {
     public Order createOrder(@RequestBody Order order) {
         return orderManager.createOrder(order);
     }
-
-    @RequestMapping(value = "/api/order/{id}", method = RequestMethod.PUT, consumes = "application/json")
-    @ResponseBody
-    public Order updateOrder(@PathVariable Integer id, @RequestBody Order order) {
-        return orderManager.updateOrder(id, order);
-    }
-
-    @RequestMapping(value = "/api/order/{id}", method = RequestMethod.DELETE)
-    @ResponseBody
-    public void deleteOrder(@PathVariable Integer id) {
-        orderManager.deleteOrder(id);
-    }
 }

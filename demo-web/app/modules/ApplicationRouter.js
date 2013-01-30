@@ -61,7 +61,7 @@ define([
         showCart : function () {
             if (!this.cartView) {
                 this.cartView = new CartView({
-                    collection : Cart.globalCart
+                    model : Cart.globalCart
                 });
             }
         },
@@ -103,13 +103,6 @@ define([
     var showSlide = function (element) {
         element.animate({
             height : "show"
-        }, 400);
-    };
-
-    var slideLeft = function (element) {
-        element.animate({
-            left : "-=200",
-            opacity : 0
         }, 400);
     };
 

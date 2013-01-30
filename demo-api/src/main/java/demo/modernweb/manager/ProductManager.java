@@ -1,6 +1,5 @@
 package demo.modernweb.manager;
 
-import demo.modernweb.domain.Customer;
 import demo.modernweb.domain.Product;
 import org.springframework.stereotype.Repository;
 
@@ -86,5 +85,10 @@ public class ProductManager {
     public void deleteProduct(Integer productId) {
         Product product = getProduct(productId);
         products.remove(product);
+    }
+
+    public void updateStockStatus(Integer productId, Integer quantity) {
+        Product product = getProduct(productId);
+        product.setStockStatus(product.getStockStatus() - quantity);
     }
 }

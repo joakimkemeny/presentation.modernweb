@@ -27,9 +27,7 @@ define([
         },
 
         addToCart : function (e) {
-            Cart.globalCart.addToCart(new Cart.Model({
-                product : this.model
-            }));
+            Cart.globalCart.addToCart(this.model);
             e.stopPropagation();
         },
 

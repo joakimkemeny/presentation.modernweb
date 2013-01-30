@@ -1,18 +1,23 @@
 package demo.modernweb.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Order {
 
     private Integer id;
-    private String customer;
-    private int quantity;
+    private DeliveryAddress deliveryAddress;
+    private String shipmentMethod;
+    private List<OrderItem> products = new ArrayList<OrderItem>();
 
     public Order() {
     }
 
-    public Order(Integer id, String customer, int quantity) {
+    public Order(Integer id, DeliveryAddress deliveryAddress, String shipmentMethod, List<OrderItem> products) {
         this.id = id;
-        this.customer = customer;
-        this.quantity = quantity;
+        this.deliveryAddress = deliveryAddress;
+        this.shipmentMethod = shipmentMethod;
+        this.products = products;
     }
 
     public Integer getId() {
@@ -23,19 +28,27 @@ public class Order {
         this.id = id;
     }
 
-    public String getCustomer() {
-        return customer;
+    public DeliveryAddress getDeliveryAddress() {
+        return deliveryAddress;
     }
 
-    public void setCustomer(String customer) {
-        this.customer = customer;
+    public void setDeliveryAddress(DeliveryAddress deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public String getShipmentMethod() {
+        return shipmentMethod;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setShipmentMethod(String shipmentMethod) {
+        this.shipmentMethod = shipmentMethod;
+    }
+
+    public List<OrderItem> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<OrderItem> products) {
+        this.products = products;
     }
 }

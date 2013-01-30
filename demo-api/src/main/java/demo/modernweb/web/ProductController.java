@@ -1,6 +1,5 @@
 package demo.modernweb.web;
 
-import demo.modernweb.domain.Customer;
 import demo.modernweb.domain.Product;
 import demo.modernweb.manager.ProductManager;
 import org.springframework.beans.factory.annotation.Autowired;
