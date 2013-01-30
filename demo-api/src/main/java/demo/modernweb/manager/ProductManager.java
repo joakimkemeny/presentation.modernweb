@@ -1,6 +1,8 @@
 package demo.modernweb.manager;
 
 import demo.modernweb.domain.Product;
+import demo.modernweb.websocket.WebSocketManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -12,6 +14,9 @@ public class ProductManager {
 
     private List<Product> products = new ArrayList<>();
     private int productId;
+
+    @Autowired
+    private WebSocketManager webSocketManager;
 
     @PostConstruct
     protected void setupProducts() {
@@ -90,5 +95,7 @@ public class ProductManager {
     public void updateStockStatus(Integer productId, Integer quantity) {
         Product product = getProduct(productId);
         product.setStockStatus(product.getStockStatus() - quantity);
+
+        webSocketManager.broadcast("stockStatusUpdated", product);
     }
 }

@@ -2,8 +2,9 @@ define([
     "jquery",
     "backbone",
     "underscore",
+    "framework/WebSocket",
     "routes/ApplicationRouter"
-], function ($, Backbone, _, ApplicationRouter) {
+], function ($, Backbone, _, webSocket, ApplicationRouter) {
     "use strict";
 
     var ModernWeb = {};
@@ -17,8 +18,10 @@ define([
         };
 
         new ApplicationRouter();
+        webSocket.connect();
         Backbone.history.start();
     };
+
 
     return ModernWeb;
 });

@@ -28,6 +28,15 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>webSocketServlet</servlet-name>
+        <servlet-class>demo.modernweb.websocket.WebSocketHandlerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>webSocketServlet</servlet-name>
+        <url-pattern>/ws</url-pattern>
+    </servlet-mapping>
+
     <!--
     <filter>
         <filter-name>cross-origin</filter-name>
