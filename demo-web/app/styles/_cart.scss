@@ -1,8 +1,7 @@
 .cart {
-
     margin: $padding;
     padding-top: $padding * 2;
-    width: 260px;
+    width: $cartWidth;
 
     header {
         text-align: center;
@@ -32,11 +31,7 @@
             margin: 0;
             padding: ($padding / 2) $padding * 2;
 
-            &:nth-child(even) {
-                background-color: $lighterBackgroundColor;
-            }
-
-            i {
+            .icon-trash {
                 color: $darkBackgroundColor;
                 cursor: pointer;
             }
@@ -46,29 +41,29 @@
                 font-size: 0.9em;
                 font-weight: bold;
             }
+
+            &:nth-child(even) {
+                background-color: $lighterBackgroundColor;
+            }
         }
     }
 
     footer {
+        @include border-image(url(../images/border.png) 0 0 10 repeat);
+
         background-color: $lightestBackgroundColor;
         border-width: 0px 0px 5px 0;
-
-        -moz-border-image: url(../images/border.png) 0 0 10 repeat;
-        -webkit-border-image: url(../images/border.png) 0 0 10 repeat;
-        -o-border-image: url(../images/border.png) 0 0 10 repeat;
-        border-image: url(../images/border.png) 0 0 10 repeat;
-
         font-weight: bold;
         margin-top: 2px;
         padding: $padding ($padding * 2) ($padding * 2) ($padding * 2);
 
-        a {
-            width: 100%;
-        }
-
         span {
             float: right;
             font-size: 0.9em;
+        }
+
+        .btn {
+            width: 100%;
         }
     }
 }
