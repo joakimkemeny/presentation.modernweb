@@ -33,7 +33,11 @@ define([
         },
 
         showProduct : function () {
-            Backbone.history.navigate("product/" + this.model.id, true);
+            if (Backbone.history.fragment === "product/" + this.model.id) {
+                Backbone.history.navigate("product", true);
+            } else {
+                Backbone.history.navigate("product/" + this.model.id, true);
+            }
         }
     });
 
