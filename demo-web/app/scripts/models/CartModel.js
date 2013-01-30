@@ -37,6 +37,13 @@ define([
             }
         },
 
+        removeFromCart : function (item) {
+            var cartItem = this.get("items").get(item.id);
+            if (cartItem) {
+                this.get("items").remove(cartItem);
+            }
+        },
+
         emptyCart : function () {
             this.get("deliveryAddress").clear();
             this.get("items").reset();

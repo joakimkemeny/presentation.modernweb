@@ -25,7 +25,7 @@ define([
         },
 
         removeFromCart : function () {
-            CartModel.globalCart.remove(this.model);
+            CartModel.globalCart.removeFromCart(this.model);
         }
     });
 
