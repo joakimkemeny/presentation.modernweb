@@ -1,0 +1,40 @@
+<div class="confirm">
+    <header style="padding-left:0">
+        <h2>Bekräfta</h2>
+    </header>
+    <table>
+        <thead>
+        <tr>
+            <th>Vara</th>
+            <th>Antal</th>
+            <th>Pris</th>
+            <th>Totalt</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% _.each(items, function(item) { %>
+        <tr>
+            <td><%- item.name %></td>
+            <td><%- item.quantity %> st</td>
+            <td><%- item.price %> kr</td>
+            <td><%- item.price * item.quantity %> kr</td>
+        </tr>
+        <% }) %>
+        </tbody>
+        <tbody class="frakt">
+        <tr>
+            <td colspan="3">Frakt</td>
+            <td><%- shipmentPrice %> kr</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="3">Totalsumma</td>
+            <td>2 400 kr</td>
+        </tr>
+        </tfoot>
+    </table>
+    <footer id="send">
+        <button class="btn"><i class="icon-ok"></i> Skicka beställning</button>
+    </footer>
+</div>

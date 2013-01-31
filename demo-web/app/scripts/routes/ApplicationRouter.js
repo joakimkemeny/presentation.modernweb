@@ -1,17 +1,24 @@
 define([
     "jquery",
-    "backbone",
+    "Backbone",
+    "ModernWeb",
+    "collections/DeliveryOptionCollection",
     "collections/ProductCollection",
     "models/CartModel",
-    "models/DeliveryOptionModel",
+    "models/DeliveryAddressModel",
     "views/CartView",
-    "views/CheckoutView",
-    "views/DeliveryView",
+    "views/ConfirmView",
+    "views/DeliveryAddressView",
+    "views/DeliveryOptionsView",
     "views/ProductsView"
-], function ($, Backbone, ProductCollection, CartModel, DeliveryOptionModel, CartView, CheckoutView, DeliveryView, ProductsView) {
+], function ($, Backbone, ModernWeb, DeliveryOptionCollection, ProductCollection, CartModel, DeliveryAddressModel, CartView, ConfirmView, DeliveryAddressView, DeliveryOptionsView, ProductsView) {
     "use strict";
 
     var ProductRouter = Backbone.Router.extend({
+
+        initialize : function () {
+            ModernWeb.globalCart = new CartModel();
+        },
 
         listProducts : function (productId) {
             var self = this;
@@ -22,47 +29,40 @@ define([
             $(".wrapper").removeClass("show-checkout");
 
             if (this.productsView) {
-                $(".products", this.productsView.$el).show();
                 if (productId) {
-                    var $selected = $(".products [data-product-id=" + productId + "]");
+                    var $selected = this.productsView.$el.find("[data-product-id=" + productId + "]");
                     if ($selected.is(":hidden")) {
-                        hideSlide($(".products [data-product-id]"));
-                        showSlide($selected);
+                        ModernWeb.Util.hideSlide(this.productsView.$el.find("[data-product-id]"));
+                        ModernWeb.Util.showSlide($selected);
                     }
                 } else {
-                    hideSlide($(".products [data-product-id]"));
+                    ModernWeb.Util.hideSlide(this.productsView.$el.find("[data-product-id]"));
                 }
             } else {
-                this.products = new ProductCollection();
-                this.products.fetch({
+                var products = new ProductCollection();
+                products.fetch({
                     success : function (products) {
                         self.productsView = new ProductsView({
                             collection : products
                         });
-                        $(".products", self.productsView.$el).show();
-                        if (productId) {
-                            showSlide($(".products [data-product-id=" + productId + "]"));
-                        }
                     }
                 });
             }
         },
 
         showProduct : function (productId) {
-            var self = this;
             this.listProducts(productId);
         },
 
         showCart : function () {
             if (!this.cartView) {
                 this.cartView = new CartView({
-                    model : CartModel.globalCart
+                    model : ModernWeb.globalCart
                 });
             }
         },
 
         showCheckout : function () {
-
             var self = this;
 
             this.showCart();
@@ -70,14 +70,25 @@ define([
             $(".wrapper").removeClass("show-products");
             $(".wrapper").addClass("show-checkout");
 
-            if (!this.checkoutView) {
-                this.checkoutView = new CheckoutView();
+            if (!this.deliveryAddressView) {
+                this.deliveryAddressView = new DeliveryAddressView({
+                    model : new DeliveryAddressModel()
+                });
             }
-        },
 
-        showDeliveryOptions : function () {
             if (!this.deliveryOptionView) {
-                this.deliveryOptionView = new DeliveryView();
+                var options = new DeliveryOptionCollection();
+                options.fetch({
+                    success : function (options) {
+                        self.deliveryOptionView = new DeliveryOptionsView({
+                            collection : options
+                        });
+                    }
+                });
+            }
+
+            if (!this.confirmView) {
+                this.confirmView = new ConfirmView();
             }
         },
 
@@ -85,21 +96,10 @@ define([
             "" : "listProducts",
             "product" : "listProducts",
             "product/:id" : "showProduct",
-            "checkout" : "showCheckout",
-            "deliveryOptions" : "showDeliveryOptions"
+            "checkout" : "showCheckout"
         }
     });
 
-    var hideSlide = function (element) {
-        element.animate({
-            height : "hide"
-        }, 400);
-    };
-    var showSlide = function (element) {
-        element.animate({
-            height : "show"
-        }, 400);
-    };
 
     return ProductRouter;
 });

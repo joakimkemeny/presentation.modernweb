@@ -3,8 +3,9 @@ define([
     "ModernWeb",
     "collections/CartItemCollection",
     "models/CartItemModel",
-    "models/DeliveryAddressModel"
-], function (Backbone, ModernWeb, CartItemCollection, CartItemModel, DeliveryAddressModel) {
+    "models/DeliveryAddressModel",
+    "models/PriceModel"
+], function (Backbone, ModernWeb, CartItemCollection, CartItemModel, DeliveryAddressModel, PriceModel) {
     "use strict";
 
     var CartModel = ModernWeb.Model.extend({
@@ -13,12 +14,14 @@ define([
         defaults : {
             deliveryAddress : null,
             shipmentMethod : null,
+            shipmentPrice : null,
             items : new CartItemCollection()
         },
 
         modelDefinitions : {
             deliveryAddress : DeliveryAddressModel,
-            items : CartItemCollection
+            items : CartItemCollection,
+            shipmentPriece : PriceModel
         },
 
         addToCart : function (item) {
@@ -38,10 +41,12 @@ define([
         },
 
         emptyCart : function () {
-            this.get("deliveryAddress").clear({ silent : true });
-            this.get("items").reset({ silent : true });
-            this.unset("shipmentMethod", { silent : true });
-            this.trigger("change");
+            this.id = null;
+            this.get("items").reset();
+            this.set("deliveryAddress", null);
+            this.set("shipmentMethod", null);
+            this.set("shipmentPrice", null);
+            //this.items = new CartItemCollection();
         },
 
         removeFromCart : function (item) {

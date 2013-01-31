@@ -1,7 +1,7 @@
 define([
     "jquery",
-    "backbone",
-    "underscore",
+    "Backbone",
+    "Underscore",
     "views/ProductsItemView",
     "text!templates/Products.html"
 ], function ($, Backbone, _, ProductsItemView, productsViewTemplate) {
@@ -20,7 +20,7 @@ define([
             this.$el.empty();
             this.$el.html(this.template());
 
-            var $ul = $("ul", this.$el);
+            var $ul = this.$el.find("ul");
             this.collection.each(function (model) {
                 var view = new ProductsItemView({
                     model : model

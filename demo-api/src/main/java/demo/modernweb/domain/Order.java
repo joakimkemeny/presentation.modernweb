@@ -1,5 +1,8 @@
 package demo.modernweb.domain;
 
+import demo.modernweb.domain.thirdparty.Price;
+import org.codehaus.jackson.annotate.JsonAnySetter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,5 +53,10 @@ public class Order {
 
     public void setItems(List<OrderItem> items) {
         this.items = items;
+    }
+
+    @JsonAnySetter
+    public void setUnknownProperties(String key, Object value) {
+        // Catches all unknown properties.
     }
 }

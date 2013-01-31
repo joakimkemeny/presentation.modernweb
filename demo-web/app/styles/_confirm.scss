@@ -1,0 +1,54 @@
+.confirm {
+    @include border-radius(10px);
+
+    background-color: $darkerBackgroundColor;
+    margin: 0 $padding $padding $padding;
+    padding: $padding;
+
+    header {
+        @include border-top-radius(5px);
+
+        background-color: $backgroundColor;
+        padding: $padding;
+    }
+
+    .content {
+        @include border-bottom-radius(5px);
+
+        background-color: $lightBackgroundColor;
+        padding: $padding;
+
+        form {
+            margin: $padding 0 0;
+
+            div {
+                @include clearfix;
+
+                label {
+                    float: left;
+                    font-weight: bold;;
+                    text-align: right;
+                    padding-right: $padding;
+                    width: 120px;
+                }
+
+                input {
+                    height: auto;
+                    float: left;
+                    width: auto;
+                }
+
+                span {
+                    float: left;
+                    display: inline-block;
+                    margin-left: $padding;
+                }
+            }
+
+            .btn {
+                margin-left: 120px;
+                margin-top: $padding;
+            }
+        }
+    }
+}

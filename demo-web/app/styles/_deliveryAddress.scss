@@ -1,0 +1,45 @@
+.deliveryAddress {
+    @include border-top-radius(5px);
+
+    background-color: $lightBackgroundColor;
+
+    header {
+        @include border-top-radius(5px);
+
+        background-color: $backgroundColor;
+        padding: $padding;
+    }
+
+    .content {
+        padding: $padding;
+
+        form {
+            margin: $padding 0 0;
+
+            div {
+                @include clearfix;
+
+                label {
+                    float: left;
+                    font-weight: bold;;
+                    text-align: right;
+                    line-height: 25px;
+                    padding-right: $padding;
+                    width: 120px;
+                }
+
+                input {
+                    height: auto;
+                    float: left;
+                    width: 300px;
+                }
+
+                .btn {
+                    float: left;
+                    margin-left:5px;;
+                }
+            }
+
+        }
+    }
+}

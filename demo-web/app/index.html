@@ -7,53 +7,52 @@
 </head>
 <body>
 
+    <div class="wrapper show-products">
+        <section id="products"></section>
+        <section id="cart"></section>
+        <section id="checkout">
+            <div>
+                <div id="deliveryAddress"></div>
+                <div id="deliveryOptions"></div>
+            </div>
+            <div id="confirm"></div>
+        </section>
+    </div>
 
-<div class="wrapper show-products">
-    <section id="products"></section>
-    <section id="cart"></section>
-    <section id="checkout"></section>
-</div>
+    <!-- Same-origin without sandbox -->
+    <!--<iframe src="coffeeAd.html" height="318" width="225" seamless="" style="padding: 10px" scrolling="no"></iframe>-->
 
-<!-- Same-origin without sandbox -->
-<iframe src="coffeeAd.html" height="318" width="225" seamless="" style="padding: 10px" scrolling="no"></iframe>
+    <!-- Same-origin with sandbox not allowing scripts -->
+    <!--<iframe src="coffeeAd.html" sandbox="" height="318" width="225" seamless="" style="padding: 10px" scrolling="no"></iframe>-->
 
-<!-- Same-origin with sandbox not allowing scripts -->
-<!--
-<iframe src="coffeeAd.html" sandbox="" height="318" width="225" seamless="" style="padding: 10px" scrolling="no"></iframe>
--->
+    <!-- Same-origin with sandbox allowing scripts -->
+    <!--<iframe src="coffeeAd.html" sandbox="allow-scripts" height="318" width="225" seamless="" style="padding: 10px" scrolling="no"></iframe>-->
 
-<!-- Same-origin with sandbox allowing scripts -->
-<!--
-<iframe src="coffeeAd.html" sandbox="allow-scripts" height="318" width="225" seamless="" style="padding: 10px" scrolling="no"></iframe>
--->
+    <!-- 3rd party origin with sandbox -->
+    <!--<iframe src="http://3rd-party.info:3501/ad/coffeeAd.html" sandbox="" height="318" width="225" seamless="" style="padding: 10px"></iframe>-->
 
-<!-- 3rd party origin with sandbox -->
-<!--
-<iframe src="http://3rd-party.info:3501/ad/coffeeAd.html" sandbox="" height="318" width="225" seamless="" style="padding: 10px"></iframe>
--->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="scripts/vendor/jquery.min.js"><\/script>')</script>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="scripts/vendor/jquery.min.js"><\/script>')</script>
+    <!-- build:js scripts/plugins.js -->
+    <script src="scripts/vendor/bootstrap/bootstrap-affix.js"></script>
+    <script src="scripts/vendor/bootstrap/bootstrap-alert.js"></script>
+    <script src="scripts/vendor/bootstrap/bootstrap-dropdown.js"></script>
+    <script src="scripts/vendor/bootstrap/bootstrap-tooltip.js"></script>
+    <script src="scripts/vendor/bootstrap/bootstrap-modal.js"></script>
+    <script src="scripts/vendor/bootstrap/bootstrap-transition.js"></script>
+    <script src="scripts/vendor/bootstrap/bootstrap-button.js"></script>
+    <script src="scripts/vendor/bootstrap/bootstrap-popover.js"></script>
+    <script src="scripts/vendor/bootstrap/bootstrap-typeahead.js"></script>
+    <script src="scripts/vendor/bootstrap/bootstrap-carousel.js"></script>
+    <script src="scripts/vendor/bootstrap/bootstrap-scrollspy.js"></script>
+    <script src="scripts/vendor/bootstrap/bootstrap-collapse.js"></script>
+    <script src="scripts/vendor/bootstrap/bootstrap-tab.js"></script>
+    <!-- endbuild -->
 
-<!-- build:js scripts/plugins.js -->
-<script src="scripts/vendor/bootstrap/bootstrap-affix.js"></script>
-<script src="scripts/vendor/bootstrap/bootstrap-alert.js"></script>
-<script src="scripts/vendor/bootstrap/bootstrap-dropdown.js"></script>
-<script src="scripts/vendor/bootstrap/bootstrap-tooltip.js"></script>
-<script src="scripts/vendor/bootstrap/bootstrap-modal.js"></script>
-<script src="scripts/vendor/bootstrap/bootstrap-transition.js"></script>
-<script src="scripts/vendor/bootstrap/bootstrap-button.js"></script>
-<script src="scripts/vendor/bootstrap/bootstrap-popover.js"></script>
-<script src="scripts/vendor/bootstrap/bootstrap-typeahead.js"></script>
-<script src="scripts/vendor/bootstrap/bootstrap-carousel.js"></script>
-<script src="scripts/vendor/bootstrap/bootstrap-scrollspy.js"></script>
-<script src="scripts/vendor/bootstrap/bootstrap-collapse.js"></script>
-<script src="scripts/vendor/bootstrap/bootstrap-tab.js"></script>
-<!-- endbuild -->
-
-<!-- build:js scripts/amd-app.js -->
-<script data-main="scripts/main" src="scripts/vendor/require.js"></script>
-<!-- endbuild -->
+    <!-- build:js scripts/amd-app.js -->
+    <script data-main="scripts/main" src="scripts/vendor/require.js"></script>
+    <!-- endbuild -->
 
 </body>
 </html>

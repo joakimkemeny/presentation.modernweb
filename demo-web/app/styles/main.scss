@@ -5,6 +5,9 @@
 //
 @import "cart";
 @import "checkout";
+@import "deliveryAddress";
+@import "deliveryOptions";
+@import "confirm";
 @import "product";
 
 * {
@@ -14,6 +17,10 @@
 body {
     background-color: $darkBackgroundColor;
     padding: $padding;
+}
+
+h2 {
+    margin: 0;
 }
 
 #products,

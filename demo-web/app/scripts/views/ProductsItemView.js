@@ -1,10 +1,11 @@
 define([
     "jquery",
-    "backbone",
-    "underscore",
+    "Backbone",
+    "Underscore",
+    "ModernWeb",
     "models/CartModel",
     "text!templates/ProductsItem.html"
-], function ($, Backbone, _, CartModel, productsItemTemplate) {
+], function ($, Backbone, _, ModernWeb, CartModel, productsItemTemplate) {
     "use strict";
 
     var ProductsItemView = Backbone.View.extend({
@@ -25,13 +26,14 @@ define([
         render : function () {
             this.$el.empty();
             this.$el.html(this.template(this.model.toJSON()));
+
             if (Backbone.history.fragment === "product/" + this.model.id) {
-                $(".details", this.$el).show();
+                this.$el.find(".details").show();
             }
         },
 
         addToCart : function (e) {
-            CartModel.globalCart.addToCart(this.model);
+            ModernWeb.globalCart.addToCart(this.model);
             e.stopPropagation();
         },
 
