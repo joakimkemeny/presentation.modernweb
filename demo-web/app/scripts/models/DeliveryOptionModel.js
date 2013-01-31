@@ -1,11 +1,11 @@
 define([
-    "backbone",
-    "framework/Model",
+    "Backbone",
+    "ModernWeb",
     "models/PriceModel"
-], function (Backbone, Model, PriceModel) {
+], function (Backbone, ModernWeb, PriceModel) {
     "use strict";
 
-    var DeliveryOptionModel = Model.extend({
+    var DeliveryOptionModel = ModernWeb.Model.extend({
         urlRoot : "http://3rd-party.info:8080/api/deliveryOption",
 
         defaults : {

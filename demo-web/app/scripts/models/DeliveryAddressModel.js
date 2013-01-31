@@ -1,5 +1,5 @@
 define([
-    "backbone"
+    "Backbone"
 ], function (Backbone) {
     "use strict";
 

@@ -1,17 +1,17 @@
 define([
-    "backbone",
+    "Backbone",
+    "ModernWeb",
     "collections/CartItemCollection",
-    "framework/Model",
     "models/CartItemModel",
     "models/DeliveryAddressModel"
-], function (Backbone, CartItemCollection, Model, CartItemModel, DeliveryAddressModel) {
+], function (Backbone, ModernWeb, CartItemCollection, CartItemModel, DeliveryAddressModel) {
     "use strict";
 
-    var CartModel = Model.extend({
+    var CartModel = ModernWeb.Model.extend({
         urlRoot : "/api/order",
 
         defaults : {
-            deliveryAddress : new DeliveryAddressModel(),
+            deliveryAddress : null,
             shipmentMethod : null,
             items : new CartItemCollection()
         },
@@ -37,17 +37,18 @@ define([
             }
         },
 
+        emptyCart : function () {
+            this.get("deliveryAddress").clear({ silent : true });
+            this.get("items").reset({ silent : true });
+            this.unset("shipmentMethod", { silent : true });
+            this.trigger("change");
+        },
+
         removeFromCart : function (item) {
             var cartItem = this.get("items").get(item.id);
             if (cartItem) {
                 this.get("items").remove(cartItem);
             }
-        },
-
-        emptyCart : function () {
-            this.get("deliveryAddress").clear();
-            this.get("items").reset();
-            this.unset("shipmentMethod");
         },
 
         getTotal : function () {
@@ -58,8 +59,6 @@ define([
             return total;
         }
     });
-
-    CartModel.globalCart = new CartModel();
 
     return CartModel;
 });
