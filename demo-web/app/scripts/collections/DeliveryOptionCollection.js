@@ -1,5 +1,5 @@
 define([
-    "backbone",
+    "Backbone",
     "models/DeliveryOptionModel"
 ], function (Backbone, DeliveryOptionModel) {
     "use strict";

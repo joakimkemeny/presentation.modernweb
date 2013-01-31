@@ -1,8 +1,8 @@
 define([
-    "backbone",
-    "framework/WebSocket",
+    "Backbone",
+    "ModernWeb",
     "models/ProductModel"
-], function (Backbone, WebSocket, ProductModel) {
+], function (Backbone, ModernWeb, ProductModel) {
     "use strict";
 
     var ProductCollection = Backbone.Collection.extend({
@@ -10,8 +10,7 @@ define([
         model : ProductModel,
 
         initialize : function () {
-            WebSocket.product.connect();
-            WebSocket.product.on("stockStatusUpdated", this.stockStatusUpdated, this);
+            ModernWeb.webSocket.on("stockStatusUpdated", this.stockStatusUpdated, this);
         },
 
         stockStatusUpdated : function (data) {

@@ -1,5 +1,5 @@
 define([
-    "backbone",
+    "Backbone",
     "models/CartItemModel"
 ], function (Backbone, CartItemModel) {
     "use strict";
