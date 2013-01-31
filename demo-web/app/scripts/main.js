@@ -3,20 +3,20 @@
 
     require.config({
         shim : {
-            backbone : {
-                deps : [ "underscore", "jquery" ],
+            Backbone : {
+                deps : [ "Underscore", "jquery" ],
                 exports : "Backbone"
             },
-            underscore : {
+            Underscore : {
                 deps : [ "jquery" ],
                 exports : "_"
             }
         },
 
         paths : {
-            jquery : 'vendor/jquery.min',
-            backbone : "../components/backbone/backbone-min",
-            underscore : "../components/underscore/underscore",
+            jquery : "vendor/jquery.min",
+            Backbone : "../components/backbone/backbone-min",
+            Underscore : "../components/underscore/underscore",
             text : "../components/requirejs-text/text",
 
             templates : "../templates"
