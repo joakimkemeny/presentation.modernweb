@@ -14,6 +14,24 @@
     <section id="checkout"></section>
 </div>
 
+<!-- Same-origin without sandbox -->
+<iframe src="coffeeAd.html" height="318" width="225" seamless="" style="padding: 10px" scrolling="no"></iframe>
+
+<!-- Same-origin with sandbox not allowing scripts -->
+<!--
+<iframe src="coffeeAd.html" sandbox="" height="318" width="225" seamless="" style="padding: 10px" scrolling="no"></iframe>
+-->
+
+<!-- Same-origin with sandbox allowing scripts -->
+<!--
+<iframe src="coffeeAd.html" sandbox="allow-scripts" height="318" width="225" seamless="" style="padding: 10px" scrolling="no"></iframe>
+-->
+
+<!-- 3rd party origin with sandbox -->
+<!--
+<iframe src="http://3rd-party.info:3501/ad/coffeeAd.html" sandbox="" height="318" width="225" seamless="" style="padding: 10px"></iframe>
+-->
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="scripts/vendor/jquery.min.js"><\/script>')</script>
 
