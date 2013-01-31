@@ -1,5 +1,5 @@
 define([
-    "underscore"
+    "Underscore"
 ], function (_) {
     "use strict";
 

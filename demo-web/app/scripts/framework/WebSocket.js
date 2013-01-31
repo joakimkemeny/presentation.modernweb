@@ -1,21 +1,20 @@
 define([
     "jquery",
-    "underscore",
-    "backbone",
+    "Backbone",
+    "Underscore",
     "framework/Object"
-], function ($, _, Backbone, Object) {
+], function ($, Backbone, _, Object) {
     "use strict";
 
     var WebSocket = Object.extend({
 
-        constructor : function (protocol) {
-            this.protocol = protocol;
+        constructor : function () {
         },
 
         connect : function () {
             var self = this;
 
-            this.ws = new window.WebSocket("ws://localhost:8080/ws", this.protocol);
+            this.ws = new window.WebSocket("ws://localhost:8080/ws", "modernweb");
 
             $(this.ws).on("message", function (e) {
                 var message = JSON.parse(e.originalEvent.data);
@@ -26,7 +25,5 @@ define([
 
     _.extend(WebSocket.prototype, Backbone.Events);
 
-    return {
-        product : new WebSocket("product")
-    };
+    return WebSocket;
 });
