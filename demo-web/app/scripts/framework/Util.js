@@ -6,15 +6,11 @@ define([
     var Util = {};
 
     Util.hideSlide = function (element) {
-        element.animate({
-            height : "hide"
-        }, 400);
+        element.animate({ height : "hide" });
     };
 
     Util.showSlide = function (element) {
-        element.animate({
-            height : "show"
-        }, 400);
+        element.animate({ height : "show" });
     };
 
     Util.hideFade = function (element) {

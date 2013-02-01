@@ -19,28 +19,17 @@ define([
         },
 
         render : function () {
-            this.$el.empty();
+
             this.stopListening();
             this.listenTo(this.model, "change", this.render);
-            this.listenTo(this.model.get("items"), "all", this.renderItems);
+            this.listenTo(this.model.get("items"), "all", this.render);
+
+            this.$el.empty();
             this.$el.html(this.template({
                 total : this.model.getTotal()
             }));
 
             var $ul = this.$el.find("ul");
-            this.model.get("items").each(function (model) {
-                var view = new CartItemView({
-                    model : model
-                });
-                $ul.append(view.el);
-            });
-
-            this.renderItems();
-        },
-
-        renderItems : function () {
-            var $ul = this.$el.find("ul");
-            $ul.empty();
             this.model.get("items").each(function (model) {
                 var view = new CartItemView({
                     model : model

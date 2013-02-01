@@ -3,6 +3,12 @@
         <h2>Bekräfta</h2>
     </header>
     <table>
+        <colgroup>
+            <col style="width:100%">
+            <col style="width:80px">
+            <col style="width:80px">
+            <col style="width:80px">
+        </colgroup>
         <thead>
         <tr>
             <th>Vara</th>
@@ -30,11 +36,11 @@
         <tfoot>
         <tr>
             <td colspan="3">Totalsumma</td>
-            <td>2 400 kr</td>
+            <td><%- total %> kr</td>
         </tr>
         </tfoot>
     </table>
-    <footer id="send">
+    <footer>
         <button class="btn"><i class="icon-ok"></i> Skicka beställning</button>
     </footer>
 </div>

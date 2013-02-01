@@ -1,5 +1,7 @@
 package demo.modernweb.domain;
 
+import demo.modernweb.domain.thirdparty.Price;
+
 public class Product {
 
     private Integer id;
@@ -9,12 +11,12 @@ public class Product {
     private Integer intensity;
     private Integer stockStatus;
     private Integer quantity;
-    private float price;
+    private Integer price;
 
     public Product() {
     }
 
-    public Product(Integer id, String name, String info, String image, Integer intensity, Integer stockStatus, Integer quantity, float price) {
+    public Product(Integer id, String name, String info, String image, Integer intensity, Integer stockStatus, Integer quantity, Integer price) {
         this.id = id;
         this.name = name;
         this.info = info;
@@ -81,7 +83,7 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public float getPrice() {
+    public Integer getPrice() {
         return price;
     }
 

@@ -42,7 +42,7 @@ define([
             var selectedOption = this.collection.find(function (option) {
                 return option.get("shipmentMethod").method === method;
             });
-            ModernWeb.globalCart.set("shipmentPrice", selectedOption.get("price"));
+            ModernWeb.globalCart.shipmentPrice = selectedOption.get("price");
             ModernWeb.globalCart.set("shipmentMethod", method);
         }
     });

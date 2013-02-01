@@ -1,54 +1,65 @@
 .confirm {
-    @include border-radius(10px);
-
-    background-color: $darkerBackgroundColor;
-    margin: 0 $padding $padding $padding;
-    padding: $padding;
+    border-top: 2px solid $darkBackgroundColor;
+    background-color: $lightestBackgroundColor;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 0 $padding 0 $padding;
 
     header {
-        @include border-top-radius(5px);
-
-        background-color: $backgroundColor;
         padding: $padding;
+        padding-left: 0;
     }
 
-    .content {
-        @include border-bottom-radius(5px);
+    table {
+        table-layout: fixed;
+        margin-bottom: $padding;
+        width: 100%;
 
-        background-color: $lightBackgroundColor;
-        padding: $padding;
+        th, td {
+            padding: 5px;
+            text-align: right;
 
-        form {
-            margin: $padding 0 0;
-
-            div {
-                @include clearfix;
-
-                label {
-                    float: left;
-                    font-weight: bold;;
-                    text-align: right;
-                    padding-right: $padding;
-                    width: 120px;
-                }
-
-                input {
-                    height: auto;
-                    float: left;
-                    width: auto;
-                }
-
-                span {
-                    float: left;
-                    display: inline-block;
-                    margin-left: $padding;
-                }
-            }
-
-            .btn {
-                margin-left: 120px;
-                margin-top: $padding;
+            &:first-child {
+                text-align: left;
             }
         }
+
+        tbody {
+            tr:nth-child(odd) {
+                td {
+                    background-color: $lightBackgroundColor;
+                }
+            }
+            tr:nth-child(even) {
+                td {
+                    background-color: $lighterBackgroundColor;
+                }
+            }
+        }
+        tbody.frakt {
+            tr {
+                td {
+                    border-top: 2px solid $darkBackgroundColor;
+                    background-color: $lighterBackgroundColor;
+
+                }
+            }
+
+        }
+        tfoot {
+            td {
+                font-weight: bold;
+            }
+        }
+    }
+
+    footer {
+        @include border-image(url(../images/border.png) 0 0 10 repeat);
+
+        border-width: 0px 0px 5px 0;
+        margin: 0 -$padding;
+        margin-bottom: $padding;
+        padding: $padding;
+        text-align: right;
     }
 }

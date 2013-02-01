@@ -18,20 +18,25 @@ define([
         initialize : function () {
             this.template = _.template(confirmTemplate);
             this.update();
-            this.listenTo(ModernWeb.globalCart, "change", this.update);
         },
 
         render : function () {
             this.$el.empty();
             this.$el.html(this.template({
                 items : ModernWeb.globalCart.get("items").toJSON(),
-                shipmentPrice : ModernWeb.globalCart.get("shipmentPrice").format()
+                shipmentPrice : ModernWeb.globalCart.shipmentPrice.format(),
+                total : ModernWeb.globalCart.getTotalWithShipment()
             }));
         },
 
         update : function () {
+
+            this.stopListening();
+            this.listenTo(ModernWeb.globalCart, "change", this.update);
+            this.listenTo(ModernWeb.globalCart.get("items"), "all ", this.update);
+
             if (ModernWeb.globalCart.get("deliveryAddress") &&
-                ModernWeb.globalCart.get("shipmentPrice")) {
+                ModernWeb.globalCart.get("shipmentMethod")) {
                 this.render();
                 ModernWeb.Util.showSlide(this.$el);
             } else {

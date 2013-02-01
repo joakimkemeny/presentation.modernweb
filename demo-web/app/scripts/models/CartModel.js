@@ -21,7 +21,7 @@ define([
         modelDefinitions : {
             deliveryAddress : DeliveryAddressModel,
             items : CartItemCollection,
-            shipmentPriece : PriceModel
+            shipmentPrice : PriceModel
         },
 
         addToCart : function (item) {
@@ -46,7 +46,6 @@ define([
             this.set("deliveryAddress", null);
             this.set("shipmentMethod", null);
             this.set("shipmentPrice", null);
-            //this.items = new CartItemCollection();
         },
 
         removeFromCart : function (item) {
@@ -61,6 +60,15 @@ define([
             this.get("items").each(function (cartItem) {
                 total += cartItem.get("quantity") * cartItem.get("price");
             });
+            return total;
+        },
+
+        getTotalWithShipment : function () {
+            var total = this.getTotal();
+            var shipmentPrice = this.get("shipmentPrice");
+            if (shipmentPrice) {
+                total += shipmentPrice.get("amount") / 100;
+            }
             return total;
         }
     });
