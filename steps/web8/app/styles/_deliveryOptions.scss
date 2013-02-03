@@ -1,0 +1,47 @@
+.deliveryOptions {
+    @include border-radius(5px);
+
+    background-color: $lightBackgroundColor;
+
+    header {
+        background-color: $backgroundColor;
+        padding: $padding;
+    }
+
+    .content {
+        padding: $padding;
+
+        form {
+            margin: $padding 0 0;
+
+            div {
+                @include clearfix;
+
+                label {
+                    float: left;
+                    font-weight: bold;;
+                    text-align: right;
+                    padding-right: $padding;
+                    width: 120px;
+                }
+
+                input {
+                    height: auto;
+                    float: left;
+                    width: auto;
+                }
+
+                span {
+                    float: left;
+                    display: inline-block;
+                    margin-left: $padding;
+                }
+            }
+
+            .btn {
+                margin-left: 120px;
+                margin-top: $padding;
+            }
+        }
+    }
+}

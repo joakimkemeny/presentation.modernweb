@@ -1,0 +1,8 @@
+<h1>Hej <%- event %>!</h1>
+<p>Dagens tutorial presenteras av:</p>
+
+<ul>
+    <% _.each(presenters, function (presenter) { %>
+    <li><%- presenter %></li>
+    <% }) %>
+</ul>

@@ -1,0 +1,88 @@
+@import "compass/css3";
+@import "variables";
+
+.products {
+    @include border-radius(10px);
+
+    background-color: $darkerBackgroundColor;
+    margin-bottom: $padding;
+    padding: $padding;
+
+    header {
+        @include border-top-radius(5px);
+
+        background-color: $backgroundColor;
+        padding: $padding;
+    }
+
+    ul {
+        background-color: $lightBackgroundColor;
+        margin: 0;
+        padding: $padding 0;
+
+        li {
+            cursor: pointer;
+            list-style: none;
+            margin: 0;
+            padding: $padding ($padding * 2);
+
+            .info {
+                @include clearfix;
+
+                img {
+                    @include single-transition(all, 0.2s);
+
+                    float: left;
+                    height: 30px;
+                    margin-right: $padding * 2;
+                }
+
+                span {
+                    float: left;
+                    line-height: 30px;
+                }
+
+                .icon-star {
+                    @include single-transition(all, 0.5s);
+                    
+                    font-size: 0.8em;
+                    float: right;
+                    line-height: 30px;
+                    opacity: 0.3;
+                }
+
+                button {
+                    float: right;
+                    margin-left: $padding;
+                }
+            }
+
+            .details {
+                @include border-radius(5px);
+
+                background-color: $lightestBackgroundColor;
+                border: 1px solid $darkBackgroundColor;
+                display: none;
+                margin-top: $padding;
+
+                p {
+                    padding: $padding $padding 0 $padding;
+                }
+            }
+
+            &:nth-child(even) {
+                background-color: $lighterBackgroundColor;
+            }
+
+            &:hover {
+                img {
+                    @include scale(2.2, 2.2);
+                }
+                
+                .icon-star {
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}

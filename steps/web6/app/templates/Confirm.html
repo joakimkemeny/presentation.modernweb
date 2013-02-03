@@ -1,0 +1,46 @@
+<div class="confirm">
+    <header style="padding-left:0">
+        <h2>Bekräfta</h2>
+    </header>
+    <table>
+        <colgroup>
+            <col style="width:100%">
+            <col style="width:80px">
+            <col style="width:80px">
+            <col style="width:80px">
+        </colgroup>
+        <thead>
+        <tr>
+            <th>Vara</th>
+            <th>Antal</th>
+            <th>Pris</th>
+            <th>Totalt</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% _.each(items, function(item) { %>
+        <tr>
+            <td><%- item.name %></td>
+            <td><%- item.quantity %> st</td>
+            <td><%- item.price %> kr</td>
+            <td><%- item.price * item.quantity %> kr</td>
+        </tr>
+        <% }) %>
+        </tbody>
+        <tbody class="frakt">
+        <tr>
+            <td colspan="3">Frakt</td>
+            <td><%- shipmentPrice %> kr</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="3">Totalsumma</td>
+            <td><%- total %> kr</td>
+        </tr>
+        </tfoot>
+    </table>
+    <footer>
+        <button class="btn"><i class="icon-ok"></i> Skicka beställning</button>
+    </footer>
+</div>

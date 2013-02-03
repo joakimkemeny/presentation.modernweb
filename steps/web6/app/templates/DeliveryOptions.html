@@ -1,0 +1,18 @@
+<div class="deliveryOptions">
+    <header>
+        <h2>Frakt</h2>
+    </header>
+    <div class="content">
+        <p>Hur vill du att vi fraktar dina varor?</p>
+        <form>
+            <% _.each(deliveryOptions, function(deliveryOption, index) { %>
+            <div>
+                <label for="method<%- index %>"><%- deliveryOption.shipmentMethod.method %></label>
+                <input id="method<%- index %>" type="radio" name="shipmentMethod"
+                       value="<%- deliveryOption.shipmentMethod.method %>">
+                <span><%- deliveryOption.price.format() %> kr</span>
+            </div>
+            <% }) %>
+        </form>
+    </div>
+</div>

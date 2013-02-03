@@ -1,0 +1,52 @@
+@import "compass_twitter_bootstrap_awesome";
+
+img {
+    height: 30px;
+}
+
+.details {
+    display: none;
+}
+
+.show-products {
+
+    [href="#product"] {
+        display: none;
+    }
+
+    #products {
+        float: left;
+        width: 500px;
+    }
+    #cart {
+        float: left;
+    }
+    #checkout {
+        display: none;
+        float: left;
+        margin-right: -500px;
+        width: 500px;
+    }
+}
+
+.show-checkout {
+
+    [href="#checkout"] {
+        display: none;
+    }
+
+    #products {
+        dislay: none;
+        float: left;
+        width: 500px;
+        margin-left: -500px;
+    }
+    #cart {
+        float: left;
+    }
+    #checkout {
+        float: left;
+        margin-right: 0;
+        width: 500px;
+    }
+}
