@@ -1,32 +1,16 @@
 @import "compass_twitter_bootstrap_awesome";
-@import "variables";
-
-@import "cart";
-@import "checkout";
-@import "deliveryAddress";
-@import "deliveryOptions";
-@import "confirm";
-@import "product";
-
-* {
-    @include box-sizing(border-box);
-}
 
 body {
-    background-color: $darkBackgroundColor;
-    padding: $padding;
+    margin: 20px;
 }
 
-h2 {
-    margin: 0;
+img {
+    height: 30px;
 }
 
-#products,
-#cart,
-#checkout {
-    @include single-transition(all, 0.5s, ease-out);
+.details {
+    display: none;
 }
-
 
 .show-products {
 
@@ -36,16 +20,15 @@ h2 {
 
     #products {
         float: left;
-        opacity: 1;
         width: 500px;
     }
     #cart {
         float: left;
     }
     #checkout {
+        display: none;
         float: left;
         margin-right: -500px;
-        opacity: 0;
         width: 500px;
     }
 }
@@ -57,8 +40,8 @@ h2 {
     }
 
     #products {
+        dislay: none;
         float: left;
-        opacity: 0;
         width: 500px;
         margin-left: -500px;
     }
@@ -68,7 +51,6 @@ h2 {
     #checkout {
         float: left;
         margin-right: 0;
-        opacity: 1;
         width: 500px;
     }
 }

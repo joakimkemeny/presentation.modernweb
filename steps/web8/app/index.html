@@ -7,7 +7,20 @@
 </head>
 <body>
 
-    <div class="wrapper show-products">
+    <!-- Same-origin without sandbox -->
+    <!--<iframe src="coffeeAd.html" height="318" width="225" seamless="" style="padding: 10px" scrolling="no"></iframe>-->
+
+    <!-- Same-origin with sandbox not allowing scripts -->
+    <!--<iframe src="coffeeAd.html" sandbox="" height="318" width="225" seamless="" style="padding: 10px" scrolling="no"></iframe>-->
+
+    <!-- Same-origin with sandbox allowing scripts -->
+    <!--<iframe src="coffeeAd.html" sandbox="allow-scripts" height="318" width="225" seamless="" style="padding: 10px" scrolling="no"></iframe>-->
+
+    <!-- 3rd party origin with sandbox -->
+    <!--<iframe src="http://3rd-party.info:3501/ad/coffeeAd.html" sandbox="" height="318" width="225" seamless="" style="padding: 10px"></iframe>-->
+
+
+    <div class="wrapper">
         <section id="products"></section>
         <section id="cart"></section>
         <section id="checkout">
@@ -18,7 +31,6 @@
             <div id="confirm"></div>
         </section>
     </div>
-    <p>jjjl</p>
 
     <!-- build:js scripts/amd-app.js -->
     <script data-main="scripts/main" src="scripts/vendor/require.js"></script>
