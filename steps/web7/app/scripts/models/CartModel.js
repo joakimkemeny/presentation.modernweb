@@ -65,7 +65,7 @@ define([
 
         getTotalWithShipment : function () {
             var total = this.getTotal();
-            var shipmentPrice = this.get("shipmentPrice");
+            var shipmentPrice = this.shipmentPrice;
             if (shipmentPrice) {
                 total += shipmentPrice.get("amount") / 100;
             }

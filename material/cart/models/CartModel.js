@@ -2,26 +2,19 @@ define([
     "Backbone",
     "ModernWeb",
     "collections/CartItemCollection",
-    "models/CartItemModel",
-    "models/DeliveryAddressModel",
-    "models/PriceModel"
-], function (Backbone, ModernWeb, CartItemCollection, CartItemModel, DeliveryAddressModel, PriceModel) {
+    "models/CartItemModel"
+], function (Backbone, ModernWeb, CartItemCollection, CartItemModel) {
     "use strict";
 
     var CartModel = ModernWeb.Model.extend({
         urlRoot : "/api/order",
 
         defaults : {
-            deliveryAddress : null,
-            items : new CartItemCollection(),
-            shipmentMethod : null,
-            shipmentPrice : null
+            items : new CartItemCollection()
         },
 
         modelDefinitions : {
-            deliveryAddress : DeliveryAddressModel,
-            items : CartItemCollection,
-            shipmentPrice : PriceModel
+            items : CartItemCollection
         },
 
         addToCart : function (item) {
@@ -40,14 +33,6 @@ define([
             }
         },
 
-        emptyCart : function () {
-            this.id = null;
-            this.get("items").reset();
-            this.set("deliveryAddress", null);
-            this.set("shipmentMethod", null);
-            this.set("shipmentPrice", null);
-        },
-
         removeFromCart : function (item) {
             var cartItem = this.get("items").get(item.id);
             if (cartItem) {
@@ -60,15 +45,6 @@ define([
             this.get("items").each(function (cartItem) {
                 total += cartItem.get("quantity") * cartItem.get("price");
             });
-            return total;
-        },
-
-        getTotalWithShipment : function () {
-            var total = this.getTotal();
-            var shipmentPrice = this.shipmentPrice;
-            if (shipmentPrice) {
-                total += shipmentPrice.get("amount") / 100;
-            }
             return total;
         }
     });
