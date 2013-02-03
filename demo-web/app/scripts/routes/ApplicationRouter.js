@@ -14,7 +14,7 @@ define([
 ], function ($, Backbone, ModernWeb, DeliveryOptionCollection, ProductCollection, CartModel, DeliveryAddressModel, CartView, ConfirmView, DeliveryAddressView, DeliveryOptionsView, ProductsView) {
     "use strict";
 
-    var ProductRouter = Backbone.Router.extend({
+    var ApplicationRouter = Backbone.Router.extend({
 
         initialize : function () {
             ModernWeb.globalCart = new CartModel();
@@ -101,5 +101,5 @@ define([
     });
 
 
-    return ProductRouter;
+    return ApplicationRouter;
 });
