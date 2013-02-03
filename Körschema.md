@@ -154,7 +154,7 @@ Kopiera in _cart.scss och även border.png och berätta om border-image.
 
 Modifiera main.scss så att vyerna animeras in.
 
-*Koden ska nu vara i läget web 8*
+*Koden ska nu vara i läget web 9*
 
 # Presentation – Microramverk (JW)
 
