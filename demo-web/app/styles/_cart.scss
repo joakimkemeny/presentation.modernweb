@@ -50,10 +50,7 @@
     }
 
     footer {
-        @include border-image(url(../images/border.png) 0 0 10 repeat);
-
         background-color: $lightestBackgroundColor;
-        border-width: 0px 0px 5px 0;
         font-weight: bold;
         margin-top: 2px;
         padding: $padding ($padding * 2) ($padding * 2) ($padding * 2);

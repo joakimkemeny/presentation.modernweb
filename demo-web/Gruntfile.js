@@ -132,7 +132,7 @@ module.exports = function( grunt ) {
     rev: {
       js: 'scripts/**/*.js',
       css: 'styles/**/*.css',
-      img: 'images/**'
+      img: 'images/*.*'
     },
 
     // usemin handler should point to the file containing
@@ -143,7 +143,7 @@ module.exports = function( grunt ) {
 
     // update references in HTML/CSS to revved files
     usemin: {
-      html: ['**/*.html'],
+      html: ['**/*.html', '**/*.js'],
       css: ['**/*.css']
     },
 

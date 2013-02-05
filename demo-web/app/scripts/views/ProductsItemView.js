@@ -26,6 +26,7 @@ define([
         render : function () {
             this.$el.empty();
             this.$el.html(this.template(this.model.toJSON()));
+            this.$el.find("img").attr("src", "images/coffee/" + this.model.get("image"));
 
             if (Backbone.history.fragment === "product/" + this.model.id) {
                 this.$el.find(".details").show();
