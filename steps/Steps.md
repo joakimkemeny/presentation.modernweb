@@ -17,7 +17,7 @@ Prata lite kort om respektive projekt som den tar med.
 * Twitter Bootstrap
 * Font Awesome
 
-Gå igenom strukturen för projektet. Kopiera in Font Awesome så att det fungerar. Justera även main.scss och _font-awesome.scss.
+Gå igenom strukturen för projektet. Kopiera in §Font Awesome så att det fungerar. Justera även main.scss och _font-awesome.scss.
 
 Visa att man kan redigera filerna direkt utan att man behöver göra någon refresh av webbläsaren. Ändra i HTML, CSS och JavaScript. Justera byggfilen så att den laddar om templates.
 
@@ -125,21 +125,16 @@ Visa vad som har ändrats.
 
 *Koden ska nu vara i läget web 6*
 
+# Presentation – Mikroramverk (JW)
+
 # Presentation – CORS (JW)
 
 # Demo – Implementera CORS (JW)
-Implementera DeliveryController.
+Visa  DeliveryController och web.xml.  
 Ändra i DeliveryOptionCollection och DeliveryOptionModel så att de har url:er igen.
-Ta bort den statiska listan med options i DeliveryOptionCollection och använd fetch.
+Ta bort den statiska listan med options i ApplicationRouter och använd fetch.
 
 *Koden ska nu vara i läget web 7*
-
-# Presentation – Hantera externt material (JW)
-
-# Demo – Lägg till en iframe (JW)
-Lägg till en iframe och visa hur olika typer av sandboxing påverkar.
-
-*Koden ska nu vara i läget web 8*
 
 # Presentation – CSS och SASS (JK)
 
@@ -156,9 +151,12 @@ Modifiera main.scss så att vyerna animeras in.
 
 *Koden ska nu vara i läget web 9*
 
-# Presentation – Microramverk (JW)
+# Presentation – Hantera externt material (JW)
 
-# Demo – Gridutvärdering (JW)
+# Demo – Lägg till en iframe (JW)
+Lägg till en iframe och visa hur olika typer av sandboxing påverkar.
+
+*Koden ska nu vara i läget web 8*
 
 # Presentation – WebSockets (JK)
 
@@ -176,5 +174,9 @@ Lägg till lyssnare i ProductsItemView.
 *Koden ska nu vara i läget web 10*
 
 Snabb visning av ProConX.
+
+# Presentation – Microramverk (JW)
+
+# Demo – Gridutvärdering (JW)
 
 # Frågestund
