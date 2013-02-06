@@ -1,6 +1,6 @@
 # Presentation.ModernWeb
 
-This is the presentation files and demos for the tutorial **Ways to Build a Modern Web Application**
+This is the presentation files and demos for the tutorial **Ways to Build a Modern Web Application**. It was originally presented at Jfokus 2013.
 
 ## Abstract
 
@@ -44,6 +44,19 @@ We use Apache as a proxy and to configure this you need to have vhosts enabled i
 	</Location>
 </VirtualHost>
  ```
+### Run
+
+When the requirements above have been met you can run the demos by first starting the Jetty-server in **demo-api**.
+
+```
+mvn jetty:run
+```
+
+After that you can start the web demo in **demo-web** by starting Yeoman.
+
+```
+yeoman server
+```
 
 ## Contact
 
