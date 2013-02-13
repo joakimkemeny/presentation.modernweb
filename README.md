@@ -63,3 +63,8 @@ yeoman server
 If you have any questions or if you want the live version of this tutorial you can contact us on
 Twitter [@joakimkemeny](http://twitter.com/joakimkemeny) or [@johnwilander](http://twitter.com/johnwilander).
 
+## License
+
+The content of the presentation is licensed under
+[Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/). If you use this software under the given license you should attribute its original authors and developers Joakim Kemeny and John Wilander, also communicating their Twitter IDs @joakimkemeny and @johnwilander.
+
