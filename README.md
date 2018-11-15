@@ -1,3 +1,7 @@
+### _This repository is deprecated and archived_
+
+---
+
 # Presentation.ModernWeb
 
 This is the presentation files and demos for the tutorial **Ways to Build a Modern Web Application**. It was originally presented at Jfokus 2013.
